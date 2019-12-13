@@ -1,5 +1,5 @@
 import Layout from '../../layout/index.vue';
-import RouterView from '../../components/RouterView.vue';
+import RouterViewLayout from '../../components/RouterViewLayout.vue';
 
 const provincialRiskRouter = {
   path: '/provincial-risk',
@@ -7,7 +7,7 @@ const provincialRiskRouter = {
   component: Layout,
   redirect: '/provincial-risk/risk-analysis/add',
   meta: {
-    title: '省级风险管理',
+    title: '省级管理',
     icon: 'el-icon-s-finance',
   },
   children: [
@@ -17,7 +17,7 @@ const provincialRiskRouter = {
       meta: {
         title: '风险分析',
       },
-      component: RouterView,
+      component: RouterViewLayout,
       children: [
         {
           path: 'add',

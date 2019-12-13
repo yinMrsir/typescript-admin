@@ -1,13 +1,14 @@
 <template>
   <div>
-    provincial-add
+    simple-bar-chart
   </div>
 </template>
 
-<script>
+<script lang="ts">
   import {Vue, Component} from 'vue-property-decorator';
 
-  @Component
-  export default class RiskAnalysisAdd extends Vue {
+  export default class SimpleBarChart extends Vue {
+
   }
+
 </script>

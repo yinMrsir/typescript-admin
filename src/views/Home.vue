@@ -1,9 +1,8 @@
 <template>
   <div>
-    <div class="hello">
+    <HTitle>
       {{msg}}
-    </div>
-    <HTitle level="1">你好！</HTitle>
+    </HTitle>
   </div>
 </template>
 
@@ -23,8 +22,20 @@
 
 </script>
 
-<style scoped>
-.hello{
-  font-size: 30px;
-}
+<style>
+  .hello {
+    font-size: 30px;
+  }
+
+  #svg {
+    background: #ccc;
+    width: 500px;
+    height: 250px;
+  }
+
+  path {
+    fill: none;
+    stroke: #4682b4;
+    stroke-width: 2
+  }
 </style>

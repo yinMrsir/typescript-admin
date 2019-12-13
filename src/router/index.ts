@@ -24,6 +24,7 @@ export const constantRoutes: RouteConfig[] = [
   {
     path: '/',
     component: Layout,
+    name: 'home',
     meta: {
       title: '首页',
       icon: 'el-icon-s-home',
@@ -73,11 +74,13 @@ export const asyncRoutes: RouteConfig[] = [
     children: [
       {
         path: '/404',
+        name: 'page404',
         component: () => import('@/views/error-page/404.vue'),
         meta: { title: '404' },
       },
       {
         path: '/401',
+        name: 'page401',
         component: () => import('@/views/error-page/401.vue'),
         meta: { title: '401' },
       },
@@ -86,7 +89,7 @@ export const asyncRoutes: RouteConfig[] = [
 ];
 
 const createRouter = () => new Router({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes: constantRoutes,
 });

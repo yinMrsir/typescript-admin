@@ -1,14 +1,16 @@
 <template>
   <el-aside width="220px;">
-    <el-menu default-active="" class="el-menu-vertical-demo" :collapse="isCollapse" background-color="#20222A" text-color="#ffffff">
-    <!-- 一级 -->
+    <el-menu default-active="1" class="el-menu-vertical-demo" :collapse="isCollapse" background-color="#20222A"
+             text-color="#ffffff">
+      <!-- 一级 -->
       <template v-for="(route, index) in routes" v-if="route.meta && !route.meta.hidden">
         <template v-if="route.children">
           <template v-if="route.meta.affix">
-            <el-menu-item>
-              <i :class="route.meta.icon"></i>
-              <span slot="title">{{route.meta.title}}</span>
-            </el-menu-item>
+            <router-link :to="{name: route.name}">
+              <el-menu-item :index="String(index+1)">
+                <i :class="route.meta.icon"></i> <span slot="title">{{route.meta.title}}</span>
+              </el-menu-item>
+            </router-link>
           </template>
           <template v-else>
             <el-submenu :index="String(index+1)">
@@ -23,16 +25,16 @@
                       <span slot="title">{{item1.meta.title}}</span>
                     </template>
                     <!-- 三级-->
-                    <router-link :to="{path: item2.path}" v-for="(item2, index2) in item1.children" :key="index2">
-                      <el-menu-item :index="index+1 + '-' + index1 + 1 + '-' + index2 + 1" >{{item2.meta.title}}</el-menu-item>
+                    <router-link :to="{name: item2.name}" v-for="(item2, index2) in item1.children" :key="index2">
+                      <el-menu-item :index="index+1 + '-' + index1 + 1 + '-' + index2 + 1">{{item2.meta.title}}
+                      </el-menu-item>
                     </router-link>
                   </el-submenu>
                 </template>
                 <template v-else>
-                  <router-link :to="{path: item1.path}">
+                  <router-link :to="{name: item1.name}">
                     <el-menu-item :index="index + 1 + '-' + index1 + 1">
-                      <i :class="item1.meta.icon"></i>
-                      <span slot="title">{{item1.meta.title}}</span>
+                      <i :class="item1.meta.icon"></i> <span slot="title">{{item1.meta.title}}</span>
                     </el-menu-item>
                   </router-link>
                 </template>
@@ -41,10 +43,11 @@
           </template>
         </template>
         <template v-else>
-          <el-menu-item :index="String(index+1)">
-            <i :class="route.meta.icon"></i>
-            <span slot="title">{{route.meta.title}}</span>
-          </el-menu-item>
+          <router-link :to="{name: route.name}">
+            <el-menu-item :index="String(index+1)">
+              <i :class="route.meta.icon"></i> <span slot="title">{{route.meta.title}}</span>
+            </el-menu-item>
+          </router-link>
         </template>
       </template>
     </el-menu>
