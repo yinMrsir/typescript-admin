@@ -32,3 +32,5 @@ yarn run test:unit
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+D3.js [中文文档](https://d3js.org.cn/document/) [官方文档](https://github.com/d3/d3/blob/master/API.md)
