@@ -5,8 +5,8 @@
 
 <script lang="ts">
   import {Vue, Component} from 'vue-property-decorator';
-  import {select} from 'd3-selection';
-  import {scaleLinear, scaleBand} from 'd3-scale';
+  import {select, Selection} from 'd3-selection';
+  import {scaleLinear, scaleBand, ScaleBand, ScaleLinear} from 'd3-scale';
   import {max, ticks, range} from 'd3-array';
   import {axisBottom, axisLeft} from 'd3-axis';
   import {easeBounceInOut} from 'd3-ease';
@@ -39,10 +39,10 @@
     private barWidth!: number;
     private height!: number;
     private width!: number;
-    private svg: any;
-    private g: any;
-    private x: any;
-    private y: any;
+    private svg!: Selection<SVGSVGElement, unknown, null, undefined>;
+    private g!: Selection<SVGGElement, unknown, null, undefined>;
+    private x!: ScaleBand<string>;
+    private y!: ScaleLinear<number, number>;
 
     private mounted() {
       this.containerWidth = (this.$refs.barChartSimple as HTMLElement).offsetWidth;
@@ -68,7 +68,7 @@
       this.x = scaleBand()
         .rangeRound([0, this.width])
         .padding(0.1).domain(
-          this.data.map((d) => {
+          this.data.map((d: DataType) => {
             return d.letter;
           }),
         );
@@ -84,7 +84,7 @@
         .rangeRound([this.height, 0])
         .domain([
           0,
-          max(this.data, (d: { frequency: any; }) => {
+          max(this.data, (d: any) => {
             return d.frequency;
           }),
         ]);
@@ -134,7 +134,7 @@
         .attr('class', 'bar')
         .attr('fill', '#8a2be2')
         .attr('x', (d: { letter: string; }) => {
-          return this.x(d.letter);
+          return Number(this.x(d.letter));
         })
         .attr('y', this.height)
         .attr('width', this.x.bandwidth())
@@ -163,7 +163,7 @@
         .attr('font-size', '14px')
         .attr('text-anchor', 'middle')
         .attr('x', (d: { letter: string; }) => {
-          return this.x(d.letter);
+          return Number(this.x(d.letter));
         })
         .attr('y', (d: { frequency: number | { valueOf(): number; }; }) => {
           return this.y(d.frequency);
