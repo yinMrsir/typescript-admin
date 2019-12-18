@@ -9,14 +9,14 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 // 自定义插件
-import toastPlugins from './plugins/toastPlugins';
+import ToastPlugins from './plugins/toastPlugins';
 // filters
 import * as filters from '@/filters';
 // directives
 import * as directives from '@/directives';
 
 Vue.use(ElementUI);
-Vue.use(toastPlugins);
+Vue.use(ToastPlugins);
 
 Object.keys(filters).forEach((key) => {
   // tslint:disable-next-line:ban-types
