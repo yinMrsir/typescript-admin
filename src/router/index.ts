@@ -13,7 +13,7 @@ function importAll(r: any) {
   });
 }
 
-const requireComponent = require.context('./module', false, /\.router\.js$/);
+const requireComponent = require.context('./module', false, /\.router\.ts$/);
 importAll(requireComponent);
 
 /**

@@ -6,18 +6,19 @@
         <Headers></Headers>
       </el-header>
       <el-main>
-        <el-breadcrumb separator-class="el-icon-arrow-right">
-          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-          <el-breadcrumb-item>活动管理</el-breadcrumb-item>
-          <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-          <el-breadcrumb-item>活动详情</el-breadcrumb-item>
-        </el-breadcrumb>
+        <div class="breadcrumb">
+          <el-breadcrumb separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item>活动管理</el-breadcrumb-item>
+            <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+            <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+          </el-breadcrumb>
+        </div>
         <router-view></router-view>
       </el-main>
     </el-container>
   </el-container>
 </template>
-
 
 <script lang="ts">
   import {Vue, Component} from 'vue-property-decorator';
@@ -30,22 +31,27 @@
       Headers,
     },
   })
-  export default class Layout extends Vue {}
+  export default class Layout extends Vue {
+  }
 
 </script>
 
-<style>
+<style lang="scss">
   .el-container {
     height: 100%;
   }
 
-  .el-main {
-    color: #333;
-    text-align: center;
-    line-height: 160px;
-  }
-
   body > .el-container {
     margin-bottom: 40px;
+  }
+
+  .el-main {
+    padding: 0;
+  }
+
+  .breadcrumb {
+    background: #fff;
+    padding: 15px;
+    border-top: #f6f6f6 solid 1px;
   }
 </style>

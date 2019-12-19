@@ -12,9 +12,9 @@ export default {
       path: '/simple-bar-chart',
       name: 'simpleBarChart',
       meta: {
-        title: '简单柱状图'
+        title: '简单柱状图',
       },
-      component: () => import('@/views/chart/simple-bar-chart.vue')
-    }
-  ]
-}
+      component: () => import('@/views/chart/simple-bar-chart.vue'),
+    },
+  ],
+};

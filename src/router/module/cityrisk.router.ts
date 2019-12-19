@@ -1,5 +1,5 @@
 import Layout from '../../layout/index.vue';
-import RouterViewLayout from '../../components/RouterViewLayout.vue'
+import RouterViewLayout from '../../components/RouterViewLayout.vue';
 
 const cityRiskRouter = {
   path: '/city-risk',
@@ -22,21 +22,21 @@ const cityRiskRouter = {
           path: 'add',
           name: 'CityRiskAnalysisAdd',
           meta: {
-            title: '任务发起'
+            title: '任务发起',
           },
-          component: () => import('@/views/city-risk/risk-analysis/add.vue')
+          component: () => import('@/views/city-risk/risk-analysis/add.vue'),
         },
         {
           path: 'list',
           name: 'CityRiskAnalysisList',
           meta: {
-            title: '任务查询'
+            title: '任务查询',
           },
-          component: () => import('@/views/city-risk/risk-analysis/list.vue')
-        }
-      ]
-    }
+          component: () => import('@/views/city-risk/risk-analysis/list.vue'),
+        },
+      ],
+    },
   ],
 };
 
-export default cityRiskRouter
+export default cityRiskRouter;

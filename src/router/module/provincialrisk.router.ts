@@ -25,7 +25,7 @@ const provincialRiskRouter = {
           meta: {
             title: '任务发起',
           },
-          component: () => import('@/views/provincial-risk/risk-analysis/add.vue')
+          component: () => import('@/views/provincial-risk/risk-analysis/add.vue'),
         },
         {
           path: 'list',
@@ -33,11 +33,11 @@ const provincialRiskRouter = {
           meta: {
             title: '任务查询',
           },
-          component: () => import('@/views/provincial-risk/risk-analysis/list.vue')
-        }
-      ]
+          component: () => import('@/views/provincial-risk/risk-analysis/list.vue'),
+        },
+      ],
     },
-  ]
+  ],
 };
 
-export default provincialRiskRouter
+export default provincialRiskRouter;
