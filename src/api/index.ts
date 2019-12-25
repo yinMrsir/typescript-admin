@@ -1,5 +1,7 @@
-import trmfxApi from './module/trmfx';
+import userApi from './module/user';
+import tableApi from './module/table';
 
 export {
-  trmfxApi,
+  userApi,
+  tableApi,
 };

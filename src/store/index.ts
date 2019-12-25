@@ -1,25 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import {IAppState} from '@/store/modules/app';
+import {IUserState} from './modules/user';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {
-    opened: false,
-  },
-  mutations: {
-    SET_OPENED(state, data) {
-      state.opened = data;
-    },
-  },
-  actions: {
-    setOpened({commit}, data) {
-      commit('SET_OPENED', data);
-    },
-  },
-  getters: {
-    opened: (state) => state.opened,
-  },
-  modules: {
-  },
-});
+export interface IRootState {
+  app: IAppState;
+  user: IUserState;
+}
+
+export default new Vuex.Store<IRootState>({});

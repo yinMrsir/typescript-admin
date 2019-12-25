@@ -40,8 +40,8 @@
 
 <script lang="ts">
   import {Vue, Component} from 'vue-property-decorator';
-  import {isValidUsername} from '@/utils/validate';
   import {Form as ElForm, Input} from 'element-ui';
+  import {UserModule} from '@/store/modules/user';
 
   @Component
   export default class Login extends Vue {
@@ -53,7 +53,7 @@
     };
 
     private validateUsername = (rule: any, value: string, callback: any) => {
-      if (!isValidUsername(value)) {
+      if (!value) {
         callback(new Error(`请输入正确的用户名`));
       } else {
         callback();
@@ -61,8 +61,8 @@
     }
 
     private validatePassword = (rule: any, value: string, callback: any) => {
-      if (value.length < 6) {
-        callback(new Error(`密码不能少于6位`));
+      if (value.length < 4) {
+        callback(new Error(`密码不能少于4位`));
       } else {
         callback();
       }
@@ -76,9 +76,20 @@
     private handleLogin() {
       (this.$refs.loginForm as ElForm).validate(async (valid: boolean) => {
         if (valid) {
-          await this.$router.push({
-            path: '/',
-          });
+          const {username, password} = this.loginForm;
+          const data = await UserModule.Login({username, password});
+          if (data) {
+            this.$message({
+              message: '登录成功',
+              type: 'success',
+              duration: 1000,
+              onClose: () => {
+                this.$router.push({
+                  path: '/',
+                });
+              },
+            });
+          }
         } else {
           return false;
         }

@@ -28,16 +28,19 @@
 
 <script lang="ts">
   import {Vue, Component} from 'vue-property-decorator';
+  import {AppModule} from '@/store/modules/app';
 
-  @Component
-  export default class Headers extends Vue {
+  @Component({
+    name: 'Headers',
+  })
+  export default class extends Vue {
 
     get isCollapse() {
-      return this.$store.state.opened;
+      return AppModule.opened;
     }
 
     get className() {
-      if (this.$store.state.opened) {
+      if (AppModule.opened) {
         return 'el-icon-s-unfold';
       } else {
         return 'el-icon-s-fold';
@@ -45,7 +48,7 @@
     }
 
     private setOpened() {
-      this.$store.dispatch('setOpened', !this.isCollapse);
+      AppModule.setOpened(!this.isCollapse);
     }
   }
 </script>

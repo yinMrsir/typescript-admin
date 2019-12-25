@@ -59,13 +59,16 @@
   import {Vue, Component} from 'vue-property-decorator';
   import {RouteConfig} from 'vue-router';
   import {constantRoutes, asyncRoutes} from '@/router';
+  import {AppModule} from '@/store/modules/app';
 
-  @Component
-  export default class Sidled extends Vue {
+  @Component({
+    name: 'Sidled',
+  })
+  export default class extends Vue {
     public routes: RouteConfig[] = [];
 
     get isCollapse() {
-      return this.$store.state.opened;
+      return AppModule.opened;
     }
 
     private mounted() {

@@ -89,7 +89,7 @@ export const asyncRoutes: RouteConfig[] = [
 ];
 
 const createRouter = () => new Router({
-  mode: 'hash',
+  mode: 'history',
   base: process.env.BASE_URL,
   routes: constantRoutes,
 });

@@ -1,22 +1,23 @@
 // 引入axios
 import axios from 'axios';
-import {Message, MessageBox} from 'element-ui';
+import {Message} from 'element-ui';
+import {UserModule} from '@/store/modules/user';
 
 // 创建axios实例
 const httpService = axios.create({
   // url前缀-'https://some-domain.com/api/'
-  baseURL: 'http://192.168.0.253:8080/hndqy', // 需自定义
+  baseURL: '', // 需自定义
   // 请求超时时间
   timeout: 3000, // 需自定义
+  headers: {'Content-Type': 'application/json'},
 });
 
 // request拦截器
 httpService.interceptors.request.use(
-  (config) => {
-    // 根据条件加入token-安全携带
-    if (true) { // 需自定义
-      // 让每个请求携带token
-      config.headers.Authorization = 'a4ba3364-af59-40f6-ac54-9776bac74f55';
+  (config: any) => {
+    // 让每个请求携带token
+    if (UserModule.token) {
+      config.headers.Authorization = UserModule.token;
     }
     return config;
   },
@@ -45,7 +46,7 @@ httpService.interceptors.response.use(
         message: res.message,
       });
     } else {
-      return response.data.data;
+      return response.data;
     }
   },
   // 处理处理
@@ -94,6 +95,11 @@ httpService.interceptors.response.use(
     } else {
       error.message = '连接到服务器失败';
     }
+    Message({
+      message: error.message,
+      type: 'error',
+      duration: 5 * 1000,
+    });
     return Promise.reject(error);
   },
 );
