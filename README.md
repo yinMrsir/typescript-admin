@@ -1,6 +1,8 @@
 # vue-typescript-admin
 elementUi + d3 + typescript + vue
 
+演示地址：https://yinmrsir.github.io/typescript-admin/
+
 ## Project setup
 ```
 yarn install
