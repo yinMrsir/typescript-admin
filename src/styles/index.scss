@@ -32,3 +32,11 @@ a {
 .button-block {
   width: 100%;
 }
+
+.main-box {
+  padding: 15px;
+  margin: 10px 10px 0;
+  background: #fff;
+  min-height: calc(100vh - 105px);
+  box-sizing: border-box;
+}

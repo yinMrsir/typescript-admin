@@ -19,6 +19,9 @@ export default {
       return {
         code: 200,
         token: '123456',
+        data: {
+          username,
+        },
         message: '登录成功',
       };
     }

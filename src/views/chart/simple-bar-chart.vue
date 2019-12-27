@@ -1,5 +1,6 @@
 <template>
-  <div ref="barChartSimple">
+  <div class="main-box">
+    <div ref="barChartSimple"></div>
   </div>
 </template>
 

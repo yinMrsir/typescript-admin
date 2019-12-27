@@ -13,7 +13,7 @@
       <el-col :span="1">
         <el-dropdown @command="handleCommand" trigger="click">
           <span class="el-dropdown-link">
-            王小虎
+            {{username}}
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>修改资料</el-dropdown-item>
@@ -38,6 +38,10 @@
 
     get isCollapse() {
       return AppModule.opened;
+    }
+
+    get username(): string {
+      return UserModule.userInfo ? JSON.parse(UserModule.userInfo).username : '';
     }
 
     get className() {

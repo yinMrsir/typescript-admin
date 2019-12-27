@@ -9,9 +9,8 @@
         <div class="breadcrumb">
           <el-breadcrumb separator-class="el-icon-arrow-right">
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item>活动管理</el-breadcrumb-item>
-            <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-            <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+            <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="index">{{item.meta.title}}
+            </el-breadcrumb-item>
           </el-breadcrumb>
         </div>
         <router-view></router-view>
@@ -21,9 +20,10 @@
 </template>
 
 <script lang="ts">
-  import {Vue, Component} from 'vue-property-decorator';
+  import {Component, Vue, Watch} from 'vue-property-decorator';
   import Sidled from '@/layout/components/Sidled.vue';
   import Headers from '@/layout/components/Headers.vue';
+  import {RouteRecord} from 'vue-router';
 
   @Component({
     components: {
@@ -32,6 +32,25 @@
     },
   })
   export default class Layout extends Vue {
+    private breadcrumbs: RouteRecord[] = [];
+
+    @Watch('$route')
+    private onRouteChange() {
+      this.getBreadcrumb();
+    }
+
+    private getBreadcrumb() {
+      let matched = this.$route.matched.filter((item) => item.meta && item.meta.title);
+      const first = matched[0];
+      if (first.name === 'home') {
+        matched = [];
+      }
+      this.breadcrumbs = matched;
+    }
+
+    private mounted() {
+      this.getBreadcrumb();
+    }
   }
 
 </script>

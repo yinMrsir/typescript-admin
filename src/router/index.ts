@@ -65,7 +65,8 @@ export const constantRoutes: RouteConfig[] = [
 export const asyncRoutes: RouteConfig[] = [
   ...routerList,
   {
-    path: '',
+    path: '/errpage',
+    name: 'errPage',
     meta: {
       title: '错误页面',
       icon: 'el-icon-warning',
@@ -73,13 +74,13 @@ export const asyncRoutes: RouteConfig[] = [
     component: Layout,
     children: [
       {
-        path: '/404',
+        path: '404',
         name: 'page404',
         component: () => import('@/views/error-page/404.vue'),
         meta: { title: '404' },
       },
       {
-        path: '/401',
+        path: '401',
         name: 'page401',
         component: () => import('@/views/error-page/401.vue'),
         meta: { title: '401' },

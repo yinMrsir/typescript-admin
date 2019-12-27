@@ -3,20 +3,37 @@ import {aesEncode} from '@/utils/validate';
 import store from '@/store';
 import {userApi} from '@/api';
 import {Message} from 'element-ui';
-import {setToken, getToken, removeToken, setRememberUser, getRememberUser, removeRememberUser} from '@/utils/cookies';
+import {
+  setToken,
+  getToken,
+  removeToken,
+  setRememberUser,
+  getRememberUser,
+  removeRememberUser,
+  getUserInfo,
+  setUserInfo,
+  removeUserInfo,
+} from '@/utils/cookies';
 
 export interface IUserState {
   token: string;
+  userInfo: string;
 }
 
 @Module({dynamic: true, store, name: 'user'})
 class User extends VuexModule implements IUserState {
   public token = getToken() || '';
+  public userInfo = getUserInfo() || '';
   public rememberUser = getRememberUser() || '';
 
   @Mutation
   private SET_TOKEN(token: string) {
     this.token = token;
+  }
+
+  @Mutation
+  private SET_USERINFO(userInfo: string) {
+    this.userInfo = userInfo;
   }
 
   @Mutation
@@ -32,6 +49,9 @@ class User extends VuexModule implements IUserState {
       }).then((data: any) => {
         this.SET_TOKEN(data.token);
         setToken(data.token);
+
+        this.SET_USERINFO(JSON.stringify(data.data));
+        setUserInfo(JSON.stringify(data.data));
         resolve(data);
       }).catch((err) => {
         Message.error(err.message);
@@ -43,7 +63,9 @@ class User extends VuexModule implements IUserState {
   @Action
   public async Logout() {
     removeToken();
+    removeUserInfo();
     this.SET_TOKEN('');
+    this.SET_USERINFO('');
   }
 
   @Action

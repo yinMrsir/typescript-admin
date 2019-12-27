@@ -1,5 +1,5 @@
 <template>
-  <div class="simple">
+  <div class="main-box">
     <el-table :data="tableData" style="width: 100%" border>
       <el-table-column prop="date" label="日期" width="180"></el-table-column>
       <el-table-column prop="name" label="姓名" width="180"></el-table-column>
@@ -32,11 +32,6 @@
 </script>
 
 <style lang="scss">
-  .simple {
-    margin: 10px;
-    padding: 10px;
-    background: #fff;
-  }
   .pagination{
     padding-top: 20px;
   }
