@@ -2,6 +2,10 @@ import CryptoJS from 'crypto-js';
 
 export const isValidUsername = (str: string) => ['admin', 'editor'].indexOf(str.trim()) >= 0;
 
+/**
+ * 解密
+ * @param encryptedBase64Str
+ */
 export function aseDecode(encryptedBase64Str: string | CryptoJS.WordArray) {
   const key = CryptoJS.enc.Utf8.parse('abcdefgabcdefg12');
   if (typeof encryptedBase64Str === 'string') {
@@ -16,11 +20,10 @@ export function aseDecode(encryptedBase64Str: string | CryptoJS.WordArray) {
   return JSON.parse(jsonStr);
 }
 
-// /**
-//  * 加密
-//  * @param encryptedBase64Str
-//  * @returns {any}
-//  */
+/**
+ * 解密
+ * @param word
+ */
 export function aesEncode(word: any) {
   const key = CryptoJS.enc.Utf8.parse('abcdefgabcdefg12');
   const srcs = CryptoJS.enc.Utf8.parse(word);

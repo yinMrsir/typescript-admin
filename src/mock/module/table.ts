@@ -1,7 +1,7 @@
 import Mock from 'mockjs';
 
-export default class TableMock {
-  public static simple() {
+export default {
+  simple() {
     const list = [];
     for (let i = 0; i < 10; i++) {
       list.push(Mock.mock({
@@ -16,5 +16,5 @@ export default class TableMock {
         list,
       },
     };
-  }
-}
+  },
+};

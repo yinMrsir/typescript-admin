@@ -3,6 +3,7 @@ import {aesEncode} from '@/utils/validate';
 import store from '@/store';
 import {userApi} from '@/api';
 import {Message} from 'element-ui';
+import {setToken, getToken, removeToken} from '@/utils/cookies';
 
 export interface IUserState {
   token: string;
@@ -10,7 +11,7 @@ export interface IUserState {
 
 @Module({dynamic: true, store, name: 'user'})
 class User extends VuexModule implements IUserState {
-  public token = '';
+  public token = getToken() || '';
 
   @Mutation
   private SET_TOKEN(token: string) {
@@ -24,12 +25,19 @@ class User extends VuexModule implements IUserState {
         requestValue: aesEncode(JSON.stringify(userInfo)),
       }).then((data: any) => {
         this.SET_TOKEN(data.token);
+        setToken(data.token);
         resolve(data);
       }).catch((err) => {
         Message.error(err.message);
         resolve(false);
       });
     });
+  }
+
+  @Action
+  public async Logout() {
+    removeToken();
+    this.SET_TOKEN('');
   }
 }
 

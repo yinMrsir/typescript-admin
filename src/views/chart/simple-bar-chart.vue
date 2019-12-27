@@ -147,10 +147,10 @@
           return i * 200;
         })
         .attr('y', (d: any) => {
-          return this.y(d.frequency);
+          return this.y(d ? d.frequency : 0);
         })
         .attr('height', (d: any) => {
-          return this.height - this.y(d.frequency);
+          return this.height - this.y(d ? d.frequency : 0);
         });
 
       this.g.append('g') // 输出柱图上的数值

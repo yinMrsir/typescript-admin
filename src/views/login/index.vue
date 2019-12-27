@@ -19,7 +19,7 @@
             <el-input v-model="loginForm.code" prefix-icon="iconfont icon-dunpai" placeholder='图形验证码'></el-input>
           </el-col>
           <el-col :span='8' :offset='1'>
-            <img src="https://www.oschina.net/action/user/captcha?t=1573539197297" alt='验证码'/>
+            <div id="v_container"></div>
           </el-col>
         </el-form-item>
         <el-form-item>
@@ -42,6 +42,7 @@
   import {Vue, Component} from 'vue-property-decorator';
   import {Form as ElForm, Input} from 'element-ui';
   import {UserModule} from '@/store/modules/user';
+  import GVerify from 'type-gverify';
 
   @Component
   export default class Login extends Vue {
@@ -51,6 +52,7 @@
       password: '',
       code: '',
     };
+    private verifyCode: any;
 
     private validateUsername = (rule: any, value: string, callback: any) => {
       if (!value) {
@@ -76,7 +78,11 @@
     private handleLogin() {
       (this.$refs.loginForm as ElForm).validate(async (valid: boolean) => {
         if (valid) {
-          const {username, password} = this.loginForm;
+          const {username, password, code} = this.loginForm;
+          if (!(this.verifyCode).validate(code)) {
+            this.$message.error('验证码错误');
+            return;
+          }
           const data = await UserModule.Login({username, password});
           if (data) {
             this.$message({
@@ -102,6 +108,10 @@
       } else if (this.loginForm.password === '') {
         (this.$refs.password as Input).focus();
       }
+
+      this.verifyCode = new GVerify({
+        id: 'v_container',
+      });
     }
 
   }

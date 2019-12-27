@@ -11,14 +11,14 @@
         <i class="el-icon-message-solid"></i>
       </el-col>
       <el-col :span="1">
-        <el-dropdown>
+        <el-dropdown @command="handleCommand" trigger="click">
           <span class="el-dropdown-link">
             王小虎
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>修改资料</el-dropdown-item>
             <el-dropdown-item>修改密码</el-dropdown-item>
-            <el-dropdown-item>退出</el-dropdown-item>
+            <el-dropdown-item command="logout">退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </el-col>
@@ -29,6 +29,7 @@
 <script lang="ts">
   import {Vue, Component} from 'vue-property-decorator';
   import {AppModule} from '@/store/modules/app';
+  import {UserModule} from '@/store/modules/user';
 
   @Component({
     name: 'Headers',
@@ -49,6 +50,13 @@
 
     private setOpened() {
       AppModule.setOpened(!this.isCollapse);
+    }
+
+    private handleCommand(command: string) {
+      if (command === 'logout') {
+        UserModule.Logout();
+        this.$router.push('/login');
+      }
     }
   }
 </script>

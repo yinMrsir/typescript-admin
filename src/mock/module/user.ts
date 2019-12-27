@@ -1,7 +1,7 @@
 import {aseDecode, isValidUsername} from '@/utils/validate';
 
-export default class UserMock {
-  public static login(params: { body: string }) {
+export default {
+  login(params: { body: string }) {
     const data = JSON.parse(params.body);
     const {requestValue} = data;
     const {username, password} = aseDecode(requestValue);
@@ -22,5 +22,5 @@ export default class UserMock {
         message: '登录成功',
       };
     }
-  }
-}
+  },
+};
