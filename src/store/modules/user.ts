@@ -3,7 +3,7 @@ import {aesEncode} from '@/utils/validate';
 import store from '@/store';
 import {userApi} from '@/api';
 import {Message} from 'element-ui';
-import {setToken, getToken, removeToken} from '@/utils/cookies';
+import {setToken, getToken, removeToken, setRememberUser, getRememberUser, removeRememberUser} from '@/utils/cookies';
 
 export interface IUserState {
   token: string;
@@ -12,10 +12,16 @@ export interface IUserState {
 @Module({dynamic: true, store, name: 'user'})
 class User extends VuexModule implements IUserState {
   public token = getToken() || '';
+  public rememberUser = getRememberUser() || '';
 
   @Mutation
   private SET_TOKEN(token: string) {
     this.token = token;
+  }
+
+  @Mutation
+  private SET_REMEMBER_USER(value: string) {
+    this.rememberUser = value;
   }
 
   @Action
@@ -38,6 +44,18 @@ class User extends VuexModule implements IUserState {
   public async Logout() {
     removeToken();
     this.SET_TOKEN('');
+  }
+
+  @Action
+  public rememberUserHanded(userInfo: { username: string, password: string }) {
+    setRememberUser(JSON.stringify(userInfo));
+    this.SET_REMEMBER_USER(JSON.stringify(userInfo));
+  }
+
+  @Action
+  public removeRememberUserHanded() {
+    removeRememberUser();
+    this.SET_REMEMBER_USER('');
   }
 }
 

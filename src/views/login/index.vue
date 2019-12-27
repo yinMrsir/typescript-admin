@@ -31,7 +31,7 @@
           </el-col>
         </el-form-item>
         <el-form-item>
-          <el-button type='primary' class='button-block' @click.native.prevent="handleLogin">登入</el-button>
+          <el-button type='primary' native-type="submit" class='button-block' @click.native.prevent="handleLogin">登入</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -85,6 +85,11 @@
           }
           const data = await UserModule.Login({username, password});
           if (data) {
+            if (this.checked) {
+              UserModule.rememberUserHanded({username, password});
+            } else {
+              UserModule.removeRememberUserHanded();
+            }
             this.$message({
               message: '登录成功',
               type: 'success',
@@ -103,10 +108,17 @@
     }
 
     private mounted() {
-      if (this.loginForm.username === '') {
-        (this.$refs.username as Input).focus();
-      } else if (this.loginForm.password === '') {
-        (this.$refs.password as Input).focus();
+      if (UserModule.rememberUser) {
+        const {username, password} = JSON.parse(UserModule.rememberUser);
+        this.loginForm.username = username;
+        this.loginForm.password = password;
+        this.checked = true;
+      } else {
+        if (this.loginForm.username === '') {
+          (this.$refs.username as Input).focus();
+        } else if (this.loginForm.password === '') {
+          (this.$refs.password as Input).focus();
+        }
       }
 
       this.verifyCode = new GVerify({
