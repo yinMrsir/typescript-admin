@@ -34,6 +34,9 @@
           <el-button type='primary' native-type="submit" class='button-block' @click.native.prevent="handleLogin">登入</el-button>
         </el-form-item>
       </el-form>
+      <div style="text-align: center;line-height: 30px; font-size: 14px;">
+        [账号 : admin 密码 : admin] <br> [账号 : editor  密码 : editor]
+      </div>
     </div>
   </div>
 </template>
