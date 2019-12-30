@@ -29,6 +29,14 @@ const comRouter = {
       ],
     },
     {
+      path: 'button',
+      name: 'Button',
+      component: () => import('@/views/com/button.vue'),
+      meta: {
+        title: '按钮',
+      },
+    },
+    {
       path: 'icon',
       name: 'Icon',
       component: () => import('@/views/com/icon.vue'),

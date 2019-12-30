@@ -16,5 +16,13 @@ export default {
       },
       component: () => import('@/views/chart/simple-bar-chart.vue'),
     },
+    {
+      path: 'map-chart',
+      name: 'MapChart',
+      meta: {
+        title: '地图',
+      },
+      component: () => import('@/views/chart/map-chart.vue'),
+    },
   ],
 };
