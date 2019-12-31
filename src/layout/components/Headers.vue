@@ -16,8 +16,12 @@
             {{username}}
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>修改资料</el-dropdown-item>
-            <el-dropdown-item>修改密码</el-dropdown-item>
+            <el-dropdown-item>
+              <router-link :to="{name: 'Info'}">基本资料</router-link>
+            </el-dropdown-item>
+            <el-dropdown-item>
+              <router-link :to="{name: 'Password'}">修改密码</router-link>
+            </el-dropdown-item>
             <el-dropdown-item command="logout">退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>

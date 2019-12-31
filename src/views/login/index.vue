@@ -31,11 +31,12 @@
           </el-col>
         </el-form-item>
         <el-form-item>
-          <el-button type='primary' native-type="submit" class='button-block' @click.native.prevent="handleLogin">登入</el-button>
+          <el-button type='primary' native-type="submit" class='button-block' @click.native.prevent="handleLogin">登入
+          </el-button>
         </el-form-item>
       </el-form>
       <div style="text-align: center;line-height: 30px; font-size: 14px;">
-        [账号 : admin 密码 : admin] <br> [账号 : editor  密码 : editor]
+        [账号 : admin 密码 : admin] <br> [账号 : editor 密码 : editor]
       </div>
     </div>
   </div>
@@ -57,7 +58,7 @@
     };
     private verifyCode: any;
 
-    private validateUsername = (rule: any, value: string, callback: any) => {
+    private validateUsername = (rule: any, value: any, callback: any) => {
       if (!value) {
         callback(new Error(`请输入正确的用户名`));
       } else {
@@ -65,7 +66,7 @@
       }
     }
 
-    private validatePassword = (rule: any, value: string, callback: any) => {
+    private validatePassword = (rule: any, value: { length: number; }, callback: any) => {
       if (value.length < 4) {
         callback(new Error(`密码不能少于4位`));
       } else {
