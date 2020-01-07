@@ -42,7 +42,7 @@
     private getBreadcrumb() {
       let matched = this.$route.matched.filter((item) => item.meta && item.meta.title);
       const first = matched[0];
-      if (first.name === 'home') {
+      if (first.name === 'Home') {
         matched = [];
       }
       this.breadcrumbs = matched;

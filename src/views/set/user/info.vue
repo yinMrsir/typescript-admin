@@ -7,7 +7,8 @@
       <el-form ref="Form" label-width="80px">
         <el-form-item label="我的角色">
           <el-select placeholder="请选择角色" v-model="optionsValue" style="width: 300px;">
-            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" :disabled="item.disabled"></el-option>
+            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"
+                       :disabled="item.disabled"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="用户名">
@@ -42,7 +43,7 @@
   import {UserModule} from '@/store/modules/user';
 
   @Component({
-    name: 'Info'
+    name: 'Info',
   })
   export default class extends Vue {
     private optionsValue: number = 1;
@@ -52,10 +53,10 @@
       {value: 3, label: '审核员', disabled: true},
       {value: 4, label: '编辑人员', disabled: true},
     ];
-    private radio:number = 1;
+    private radio: number = 1;
 
     get username() {
-      return JSON.parse(UserModule.userInfo).username
+      return JSON.parse(UserModule.userInfo).username;
     }
   }
 </script>

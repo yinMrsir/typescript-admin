@@ -5,7 +5,7 @@
       <el-table-column prop="name" label="姓名" width="180"></el-table-column>
       <el-table-column prop="address" label="地址"></el-table-column>
     </el-table>
-    <div class="pagination">
+    <div style="padding-top: 15px;">
       <el-pagination background layout="prev, pager, next" :total="1000" style="text-align: right;"
                      @current-change="changePageHandler"></el-pagination>
     </div>
@@ -16,8 +16,10 @@
   import {Vue, Component} from 'vue-property-decorator';
   import {tableApi} from '@/api/index';
 
-  @Component
-  export default class SimpleTable extends Vue {
+  @Component({
+    name: 'AppContentList'
+  })
+  export default class extends Vue {
     private tableData: object[] = [];
     private loading: boolean = false;
 
@@ -38,9 +40,3 @@
     }
   }
 </script>
-
-<style lang="scss">
-  .pagination {
-    padding-top: 20px;
-  }
-</style>

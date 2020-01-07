@@ -22,9 +22,10 @@ importAll(requireComponent);
  */
 export const constantRoutes: RouteConfig[] = [
   {
-    path: '/',
+    path: '',
     component: Layout,
-    name: 'home',
+    redirect: '/',
+    name: 'Home',
     meta: {
       title: '首页',
       icon: 'el-icon-s-home',
@@ -33,14 +34,14 @@ export const constantRoutes: RouteConfig[] = [
     children: [
       {
         path: '/',
-        name: 'home',
+        name: 'Home',
         component: () => import('../views/Home.vue'),
       },
     ],
   },
   {
     path: '/login',
-    name: 'login',
+    name: 'Login',
     meta: {
       title: '登录',
       hidden: true,
@@ -50,12 +51,12 @@ export const constantRoutes: RouteConfig[] = [
   {
     path: '/404',
     component: () => import('@/views/error-page/404.vue'),
-    meta: { hidden: true },
+    meta: {hidden: true},
   },
   {
     path: '/401',
     component: () => import('@/views/error-page/401.vue'),
-    meta: { hidden: true },
+    meta: {hidden: true},
   },
 ];
 
@@ -77,13 +78,13 @@ export const asyncRoutes: RouteConfig[] = [
         path: '404',
         name: 'page404',
         component: () => import('@/views/error-page/404.vue'),
-        meta: { title: '404' },
+        meta: {title: '404'},
       },
       {
         path: '401',
         name: 'page401',
         component: () => import('@/views/error-page/401.vue'),
-        meta: { title: '401' },
+        meta: {title: '401'},
       },
     ],
   },

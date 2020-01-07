@@ -2,15 +2,16 @@ import Layout from '../../layout/index.vue';
 import RouterViewLayout from '@/components/RouterViewLayout.vue';
 
 export default {
-  path: '/',
+  path: '/set',
   component: Layout,
+  name: 'Set',
   meta: {
     title: '设置',
     icon: 'el-icon-s-tools',
   },
   children: [
     {
-      path: '/system',
+      path: 'system',
       name: 'System',
       meta: {
         title: '系统设置',

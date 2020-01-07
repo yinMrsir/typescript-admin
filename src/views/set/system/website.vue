@@ -8,7 +8,7 @@
   import {Vue, Component} from 'vue-property-decorator';
 
   @Component({
-    name: 'Website'
+    name: 'Website',
   })
   export default class extends Vue {
   }

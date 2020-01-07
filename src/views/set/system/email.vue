@@ -1,14 +1,12 @@
 <template>
-  <div>
-    email
-  </div>
+  <div>email22</div>
 </template>
 
-<script>
+<script lang="ts">
   import {Vue, Component} from 'vue-property-decorator';
 
   @Component({
-    name: 'Email'
+    name: 'Email',
   })
   export default class extends Vue {
   }

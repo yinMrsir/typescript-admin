@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-card  style="margin: 15px;">
+    <el-card style="margin: 15px;">
       <div slot="header" class="clearfix">
         <span>修改密码</span>
       </div>
@@ -27,7 +27,7 @@
   import {Vue, Component} from 'vue-property-decorator';
 
   @Component({
-    name: 'Password'
+    name: 'Password',
   })
   export default class extends Vue {
     private ruleForm = {
@@ -36,15 +36,15 @@
       checkPass: '',
     };
 
-    private validateCurrPass = (rule: any, value: string, callback: { (arg0: Error): void; (): void; }) => {
+    private validateCurrPass = (rule: any, value: string, callback: any) => {
       if (value === '') {
         callback(new Error('请输入旧密码'));
       } else {
         callback();
       }
-    };
+    }
 
-    private validatePass = (rule: any, value: string, callback: { (arg0: Error): void; (): void; }) => {
+    private validatePass = (rule: any, value: string, callback: any) => {
       if (value === '') {
         callback(new Error('请输入密码'));
       } else {
@@ -53,9 +53,9 @@
         }
         callback();
       }
-    };
+    }
 
-    private validatePass2 = (rule: any, value: string, callback: { (arg0: Error): void; (arg0: Error): void; (): void; }) => {
+    private validatePass2 = (rule: any, value: string, callback: any) => {
       if (value === '') {
         callback(new Error('请再次输入密码'));
       } else if (value !== this.ruleForm.pass) {
@@ -63,17 +63,17 @@
       } else {
         callback();
       }
-    };
+    }
 
     private rules = {
       currPass: [
-        {validator: this.validateCurrPass, trigger: 'blur'}
+        {validator: this.validateCurrPass, trigger: 'blur'},
       ],
       pass: [
-        {validator: this.validatePass, trigger: 'blur'}
+        {validator: this.validatePass, trigger: 'blur'},
       ],
       checkPass: [
-        {validator: this.validatePass2, trigger: 'blur'}
+        {validator: this.validatePass2, trigger: 'blur'},
       ],
     };
 

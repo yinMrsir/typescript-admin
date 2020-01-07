@@ -14,12 +14,13 @@ const comRouter = {
     {
       path: 'layout',
       component: RouterViewLayout,
+      name: 'ComLayout',
       meta: {
         title: '布局',
       },
       children: [
         {
-          path: 'add',
+          path: 'base',
           name: 'ComLayoutBase',
           meta: {
             title: '基础布局',
