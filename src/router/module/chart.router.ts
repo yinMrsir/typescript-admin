@@ -1,8 +1,6 @@
-import Layout from '../../layout/index.vue';
-
 export default {
   path: '/chart',
-  component: Layout,
+  component: 'Layout',
   name: 'Chart',
   meta: {
     title: 'd3.js图库',
@@ -15,7 +13,7 @@ export default {
       meta: {
         title: '简单柱状图',
       },
-      component: () => import('@/views/chart/simple-bar-chart.vue'),
+      component: 'chart/simple-bar-chart',
     },
     {
       path: 'map-chart',
@@ -23,7 +21,7 @@ export default {
       meta: {
         title: '地图',
       },
-      component: () => import('@/views/chart/map-chart.vue'),
+      component: 'chart/map-chart',
     },
   ],
 };

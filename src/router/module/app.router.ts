@@ -1,9 +1,6 @@
-import Layout from '../../layout/index.vue';
-import RouterViewLayout from '@/components/RouterViewLayout.vue';
-
 export default {
   path: '/app',
-  component: Layout,
+  component: 'Layout',
   name: 'App',
   meta: {
     title: '应用',
@@ -13,7 +10,7 @@ export default {
     {
       path: 'content',
       name: 'AppContent',
-      component: RouterViewLayout,
+      component: 'RouterViewLayout',
       meta: {
         title: '内容系统',
       },
@@ -24,7 +21,7 @@ export default {
           meta: {
             title: '文章列表',
           },
-          component: () => import('@/views/app/content/list.vue'),
+          component: 'app/content/list',
         },
       ],
     },
@@ -34,7 +31,7 @@ export default {
       meta: {
         title: '消息中心',
       },
-      component: () => import('@/views/app/message.vue'),
+      component: 'app/message',
     },
   ],
 };

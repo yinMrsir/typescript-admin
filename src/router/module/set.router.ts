@@ -1,9 +1,6 @@
-import Layout from '../../layout/index.vue';
-import RouterViewLayout from '@/components/RouterViewLayout.vue';
-
 export default {
   path: '/set',
-  component: Layout,
+  component: 'Layout',
   name: 'Set',
   meta: {
     title: '设置',
@@ -16,7 +13,7 @@ export default {
       meta: {
         title: '系统设置',
       },
-      component: RouterViewLayout,
+      component: 'RouterViewLayout',
       children: [
         {
           path: 'website',
@@ -24,7 +21,7 @@ export default {
           meta: {
             title: '网站设置',
           },
-          component: () => import('@/views/set/system/website.vue'),
+          component: 'set/system/website',
         },
         {
           path: 'email',
@@ -32,7 +29,7 @@ export default {
           meta: {
             title: '邮件设置',
           },
-          component: () => import('@/views/set/system/email.vue'),
+          component: 'set/system/email',
         },
       ],
     },
@@ -42,7 +39,7 @@ export default {
       meta: {
         title: '我的设置',
       },
-      component: RouterViewLayout,
+      component: 'RouterViewLayout',
       children: [
         {
           path: 'info',
@@ -50,7 +47,7 @@ export default {
           meta: {
             title: '基本资料',
           },
-          component: () => import('@/views/set/user/info.vue'),
+          component: 'set/user/info',
         },
         {
           path: 'password',
@@ -58,7 +55,7 @@ export default {
           meta: {
             title: '修改密码',
           },
-          component: () => import('@/views/set/user/password.vue'),
+          component: 'set/user/password',
         },
       ],
     },

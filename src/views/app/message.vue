@@ -27,8 +27,8 @@
   @Component({
     name: 'AppMessage',
     components: {
-      TabPaneContent
-    }
+      TabPaneContent,
+    },
   })
   export default class extends Vue {
     private activeName: string = 'all';

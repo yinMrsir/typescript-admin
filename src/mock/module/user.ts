@@ -18,7 +18,7 @@ export default {
     } else {
       return {
         code: 200,
-        token: '123456',
+        token: username,
         data: {
           username,
         },

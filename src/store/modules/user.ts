@@ -3,6 +3,7 @@ import {aesEncode} from '@/utils/validate';
 import store from '@/store';
 import {userApi} from '@/api';
 import {Message} from 'element-ui';
+import {PermissionModule} from '@/store/modules/permission';
 import {
   setToken,
   getToken,
@@ -66,6 +67,7 @@ class User extends VuexModule implements IUserState {
     removeUserInfo();
     this.SET_TOKEN('');
     this.SET_USERINFO('');
+    PermissionModule.SET_ISNEEDGETROUTES(true);
   }
 
   @Action

@@ -2,8 +2,8 @@
   <div>
     <div>
       <el-button @click="deleteHandler">删除</el-button>
-      <el-button>标记已读</el-button>
-      <el-button>全部已读</el-button>
+      <el-button @click="markHandler">标记已读</el-button>
+      <el-button @click="markHandler('all')">全部已读</el-button>
     </div>
     <div class="message-table-box">
       <el-table :data="list" style="width: 100%" border v-loading="loading" @selection-change="handleSelectionChange">
@@ -29,7 +29,7 @@
   import {appApi} from '@/api';
 
   @Component({
-    name: 'TabPaneContent'
+    name: 'TabPaneContent',
   })
   export default class extends Vue {
     @Prop() private type!: string;
@@ -53,7 +53,7 @@
       this.$confirm('确定删除选中的数据吗？', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
-        type: 'warning'
+        type: 'warning',
       }).then(() => {
         this.$message({type: 'success', message: '删除成功!'});
         // 重新请求
@@ -61,6 +61,20 @@
       }).catch(() => {
         this.$message({type: 'info', message: '已取消删除'});
       });
+    }
+
+    private markHandler(type: string | undefined) {
+      if (Object.prototype.toString.call(type) === '[object MouseEvent]') {
+        if (this.multipleSelection.length === 0) {
+          this.$message.warning('还未选中数据');
+          return;
+        }
+        this.$message.success('标记已读成功');
+        // 重新请求
+        this.getMessage();
+      } else if (type === 'all') {
+        this.$message.success('全部标记已读成功');
+      }
     }
 
     public getMessage() {

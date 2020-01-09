@@ -50,8 +50,8 @@
 <script lang="ts">
   import {Vue, Component} from 'vue-property-decorator';
   import {RouteConfig} from 'vue-router';
-  import {constantRoutes, asyncRoutes} from '@/router';
   import {AppModule} from '@/store/modules/app';
+  import {PermissionModule} from '@/store/modules/permission';
 
   @Component({
     name: 'Sidled',
@@ -73,7 +73,7 @@
     }
 
     private mounted() {
-      this.routes = constantRoutes.concat(asyncRoutes);
+      this.routes = PermissionModule.routes;
     }
   }
 </script>

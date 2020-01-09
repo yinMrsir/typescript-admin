@@ -8,7 +8,11 @@
         <el-input placeholder="搜索..."></el-input>
       </el-col>
       <el-col :offset="17" :span="1">
-        <i class="el-icon-message-solid"></i>
+        <router-link :to="{name: 'AppMessage'}">
+          <el-badge class="header-mark" :value="12">
+            <i class="el-icon-message-solid"></i>
+          </el-badge>
+        </router-link>
       </el-col>
       <el-col :span="1">
         <el-dropdown @command="handleCommand" trigger="click">
@@ -86,5 +90,9 @@
     .el-input__inner {
       border: none;
     }
+  }
+
+  .header-mark .el-badge__content.is-fixed{
+    top: 10px;
   }
 </style>
