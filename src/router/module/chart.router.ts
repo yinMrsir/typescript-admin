@@ -3,7 +3,7 @@ export default {
   component: 'Layout',
   name: 'Chart',
   meta: {
-    title: 'd3.js图库',
+    title: '图库',
     icon: 'el-icon-s-data',
   },
   children: [
@@ -19,9 +19,17 @@ export default {
       path: 'map-chart',
       name: 'MapChart',
       meta: {
-        title: '地图',
+        title: 'd3.js地图',
       },
       component: 'chart/map-chart',
+    },
+    {
+      path: 'echarts-map',
+      name: 'EchartsMap',
+      meta: {
+        title: 'Echarts地图',
+      },
+      component: 'chart/echarts-map',
     },
   ],
 };

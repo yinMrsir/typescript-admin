@@ -1033,6 +1033,13 @@
     "@types/d3-voronoi" "*"
     "@types/d3-zoom" "*"
 
+"@types/echarts@^4.4.2":
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/@types/echarts/-/echarts-4.4.2.tgz#88be60b9b87bc65414f22d4150834538d62ac602"
+  integrity sha512-sK3lJn0EwFUFz2xbMiSWvwZDnft4mp5zcZtvHzrMkMU2JG7lTeYjd7iAbuK2p7s7k8xVeevClllKtrHkCtjqHw==
+  dependencies:
+    "@types/zrender" "*"
+
 "@types/events@*":
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/@types/events/download/@types/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
@@ -1101,6 +1108,11 @@
   version "1.14.1"
   resolved "https://registry.npm.taobao.org/@types/webpack-env/download/@types/webpack-env-1.14.1.tgz#0d8a53f308f017c53a5ddc3d07f4d6fa76b790d7"
   integrity sha1-DYpT8wjwF8U6Xdw9B/TW+na3kNc=
+
+"@types/zrender@*":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@types/zrender/-/zrender-4.0.0.tgz#a6806f12ec4eccaaebd9b0d816f049aca6188fbd"
+  integrity sha512-s89GOIeKFiod2KSqHkfd2rzx+T2DVu7ihZCBEBnhFrzvQPUmzvDSBot9Fi1DfMQm9Odg+rTqoMGC38RvrwJK2w==
 
 "@vue/babel-helper-vue-jsx-merge-props@^1.0.0":
   version "1.0.0"
@@ -3639,6 +3651,13 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
+
+echarts@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/echarts/-/echarts-4.6.0.tgz#b5a47a1046cec93ceeef954f9ee54751340558ec"
+  integrity sha512-xKkcr6v9UVOSF+PMuj7Ngt3bnzLwN1sSXWCvpvX+jYb3mePYsZnABq7wGkPac/m0nV653uGHXoHK8DCKCprdNg==
+  dependencies:
+    zrender "4.2.0"
 
 ee-first@1.1.1:
   version "1.1.1"
@@ -9614,3 +9633,8 @@ yorkie@^2.0.0:
     is-ci "^1.0.10"
     normalize-path "^1.0.0"
     strip-indent "^2.0.0"
+
+zrender@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/zrender/-/zrender-4.2.0.tgz#d001302e155f28de1f9fc7fcd5c254bad28471cf"
+  integrity sha512-YJ9hxt5uFincYYU3KK31+Ce+B6PJmYYK0Q9fQ6jOUAoC/VHbe4kCKAPkxKeT7jGTxrK5wYu18R0TLGqj2zbEOA==

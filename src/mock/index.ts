@@ -12,6 +12,7 @@ Mock.mock('/login', UserMock.login);
 Mock.mock('/table/simple', TableMock.simple);
 
 Mock.mock(RegExp('/app/message' + '.*'), 'get', AppMock.message);
+Mock.mock('/app/contentList', AppMock.contentList);
 
 Mock.mock(RegExp('/getRouters' + '.*'), PermissionMock.getRouters);
 

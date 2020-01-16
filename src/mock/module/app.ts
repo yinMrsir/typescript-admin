@@ -19,4 +19,24 @@ export default {
       },
     };
   },
+  contentList() {
+    const list = [];
+    for (let i = 0; i < 10; i++) {
+      list.push(Mock.mock({
+        'id': Mock.Random.id(),
+        'tag|1-5': 1,
+        'name': '@cname',
+        'date': Mock.Random.date(),
+        'title': Mock.Random.ctitle(15, 30),
+        'content': Mock.Random.cparagraph(),
+        'state|0-1': 1,
+      }));
+    }
+    return {
+      code: 200,
+      data: {
+        list,
+      },
+    };
+  },
 };
