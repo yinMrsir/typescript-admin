@@ -6,13 +6,13 @@
       </div>
       <el-form ref="Form" label-width="80px">
         <el-form-item label="我的角色">
-          <el-select placeholder="请选择角色" v-model="optionsValue" style="width: 300px;">
+          <el-select placeholder="请选择角色" v-model="optionsValue" style="width: 300px;" size="small">
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"
                        :disabled="item.disabled"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="用户名">
-          <el-input :value="username" readonly></el-input>
+          <el-input :value="username" readonly size="small"></el-input>
         </el-form-item>
         <el-form-item label="性别">
           <el-radio-group v-model="radio">
@@ -21,17 +21,17 @@
           </el-radio-group>
         </el-form-item>
         <el-form-item label="手机">
-          <el-input placeholder="请输入手机号码"></el-input>
+          <el-input placeholder="请输入手机号码" size="small"></el-input>
         </el-form-item>
         <el-form-item label="邮箱">
-          <el-input placeholder="请输入邮箱"></el-input>
+          <el-input placeholder="请输入邮箱" size="small"></el-input>
         </el-form-item>
         <el-form-item label="备注">
-          <el-input type="textarea" placeholder="请输入备注"></el-input>
+          <el-input type="textarea" placeholder="请输入备注" size="small"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary">确认修改</el-button>
-          <el-button>重新填写</el-button>
+          <el-button type="primary" size="small">确认修改</el-button>
+          <el-button size="small">重新填写</el-button>
         </el-form-item>
       </el-form>
     </el-card>

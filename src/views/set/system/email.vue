@@ -8,7 +8,7 @@
         <el-form-item label="SMTP服务器">
           <el-row>
             <el-col :span="4">
-              <el-input></el-input>
+              <el-input size="small"></el-input>
             </el-col>
             <el-col :span="18">
               <div style="padding-left: 15px; color: #8f8f8f">如：smtp.163.com</div>
@@ -18,7 +18,7 @@
         <el-form-item label="SMTP端口号">
           <el-row>
             <el-col :span="3">
-              <el-input></el-input>
+              <el-input size="small"></el-input>
             </el-col>
             <el-col :span="19">
               <div style="padding-left: 15px; color: #8f8f8f">一般为 25 或 465</div>
@@ -28,21 +28,21 @@
         <el-form-item label="发件人邮箱">
           <el-row>
             <el-col :span="4">
-              <el-input></el-input>
+              <el-input size="small"></el-input>
             </el-col>
           </el-row>
         </el-form-item>
         <el-form-item label="发件人昵称">
           <el-row>
             <el-col :span="4">
-              <el-input></el-input>
+              <el-input size="small"></el-input>
             </el-col>
           </el-row>
         </el-form-item>
         <el-form-item label="邮箱登入密码">
           <el-row>
             <el-col :span="4">
-              <el-input type="password"></el-input>
+              <el-input type="password" size="small"></el-input>
             </el-col>
           </el-row>
         </el-form-item>

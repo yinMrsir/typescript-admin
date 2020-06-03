@@ -7,16 +7,16 @@
       </div>
       <el-form :model="loginForm" :rules="loginRules" ref="loginForm" autocomplete="on">
         <el-form-item prop="username">
-          <el-input v-model="loginForm.username" ref="username" prefix-icon="iconfont icon-gerenzhongxin"
+          <el-input v-model="loginForm.username" ref="username" prefix-icon="el-icon-user"
                     placeholder='用户名'></el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input v-model="loginForm.password" ref="password" type="password" prefix-icon="iconfont icon-jiumima"
+          <el-input v-model="loginForm.password" ref="password" type="password" prefix-icon="el-icon-postcard"
                     placeholder='密码' show-password></el-input>
         </el-form-item>
         <el-form-item style='margin-bottom: 0;'>
           <el-col :span='14'>
-            <el-input v-model="loginForm.code" prefix-icon="iconfont icon-dunpai" placeholder='图形验证码'></el-input>
+            <el-input v-model="loginForm.code" prefix-icon="el-icon-c-scale-to-original" placeholder='图形验证码'></el-input>
           </el-col>
           <el-col :span='8' :offset='1'>
             <div id="v_container"></div>

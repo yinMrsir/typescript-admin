@@ -1,6 +1,7 @@
 <template>
   <div class="main-box">
     <div ref="barChartSimple"></div>
+    <UserTotal></UserTotal>
   </div>
 </template>
 
@@ -12,13 +13,18 @@
   import {axisBottom, axisLeft} from 'd3-axis';
   import {easeBounceInOut} from 'd3-ease';
   import {transition} from 'd3-transition';
+  import UserTotal from '@/views/components/UserTotal.vue';
 
   interface DataType {
     letter: string;
     frequency: number;
   }
 
-  @Component
+  @Component({
+    components: {
+      UserTotal,
+    },
+  })
   export default class SimpleBarChart extends Vue {
     private data: DataType[] = [
       {letter: '一', frequency: 0.08167},
@@ -185,7 +191,7 @@
         .attr('text-anchor', 'middle')
         .attr('x', this.containerWidth / 2)
         .attr('y', 20)
-        .text('本周酒店房间空置率');
+        .text('D3实现柱状图');
     }
 
   }

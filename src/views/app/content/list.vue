@@ -5,35 +5,35 @@
         <el-row :gutter="10">
           <el-col :span="5">
             <el-form-item label="文章ID">
-              <el-input></el-input>
+              <el-input size="small"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="5">
             <el-form-item label="作者">
-              <el-input></el-input>
+              <el-input size="small"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="5">
             <el-form-item label="标题">
-              <el-input></el-input>
+              <el-input size="small"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="5">
             <el-form-item label="文章标签">
-              <el-select v-model="region" placeholder="请选择标签" style="width: 100%;">
+              <el-select v-model="region" placeholder="请选择标签" style="width: 100%;"  size="small">
                 <el-option :label="item.label" :value="item.value" v-for="item in selectList" :key="item"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="4">
-            <el-button type="primary" icon="el-icon-search">搜索</el-button>
+            <el-button type="primary" icon="el-icon-search" size="small">搜索</el-button>
           </el-col>
         </el-row>
       </el-form>
     </div>
     <div class="app-content-btns">
-      <el-button type="primary">删除</el-button>
-      <el-button type="primary" @click="addItem">添加</el-button>
+      <el-button type="primary" size="small">删除</el-button>
+      <el-button type="primary" @click="addItem" size="small">添加</el-button>
     </div>
     <el-table :data="tableData" style="width: 100%" border v-loading="loading" stripe>
       <el-table-column type="selection" width="55"></el-table-column>

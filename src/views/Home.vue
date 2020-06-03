@@ -1,143 +1,122 @@
 <template>
-  <div class="home-container">
-    <el-row :gutter="15">
-      <el-col :span="8">
-        <el-card class="box-card">
-          <div slot="header" class="clearfix">
-            <span>图标集合</span>
-            <router-link :to="{name: 'Icon'}" class="box-card_link">更多</router-link>
-          </div>
-          <el-row :gutter="10">
-            <el-col :span="6" class="icon-box_col" v-for="(item, index) in iconList" :key="index">
-              <div class="icon-box">
-                <i :class="item"></i>
-              </div>
+  <div class="home">
+    <el-row :gutter="20">
+      <el-col :span="12">
+        <div class="home-item-box">
+          <HTitle :level="5">
+            <div class="title-top">题库情况统计 <span class="title-right" v-html="'题量：45道'"></span>
+            </div>
+          </HTitle>
+          <el-row>
+            <el-col :span="12">
+              <QuestionType className="mt20"></QuestionType>
+            </el-col>
+            <el-col :span="12">
+              <QuestionDiff className="mt20"></QuestionDiff>
             </el-col>
           </el-row>
-        </el-card>
+        </div>
       </el-col>
-      <el-col :span="8">
-        <el-card class="box-card">
-          <div slot="header" class="clearfix">
-            <span>时间线</span>
-          </div>
-          <el-timeline>
-            <el-timeline-item
-                v-for="(activity, index) in activities"
-                :key="index"
-                :icon="activity.icon"
-                :type="activity.type"
-                :color="activity.color"
-                :size="activity.size"
-                :timestamp="activity.timestamp">
-              {{activity.content}}
-            </el-timeline-item>
-          </el-timeline>
-        </el-card>
+      <el-col :span="12">
+        <UserTotal></UserTotal>
       </el-col>
-      <el-col :span="8">
-        <el-card class="box-card">
-          <div slot="header" class="clearfix">
-            <span>版本信息</span> <a href="https://github.com/yinMrsir/typescript-admin" class="box-card_link"
-                                 target="_blank">下载</a>
-          </div>
-          <el-table :data="tableData" border :show-header="showHeader">
-            <el-table-column prop="style"></el-table-column>
-            <el-table-column prop="value"></el-table-column>
-          </el-table>
-        </el-card>
+      <el-col :span="12">
+        <PointTotal></PointTotal>
+      </el-col>
+      <el-col :span="12">
+        <RedpackTotal></RedpackTotal>
+      </el-col>
+      <el-col :span="24">
+        <div class="home-item-box">
+          <HTitle :level="5">考试情况
+          </HTitle>
+          <el-row :gutter="10">
+            <el-col :span="7">
+              <Problem ref="problem"></Problem>
+            </el-col>
+            <el-col :span="10">
+              <ExamineeScores></ExamineeScores>
+            </el-col>
+            <el-col :span="7">
+              <Areal></Areal>
+            </el-col>
+          </el-row>
+        </div>
       </el-col>
     </el-row>
-
   </div>
 </template>
 
 <script lang="ts">
   import {Vue, Component} from 'vue-property-decorator';
+  import QuestionType from '@/views/components/QuestionType.vue';
+  import QuestionDiff from '@/views/components/QuestionDiff.vue';
+  import UserTotal from '@/views/components/UserTotal.vue';
+  import PointTotal from '@/views/components/PointTotal.vue';
+  import RedpackTotal from '@/views/components/RedpackTotal.vue';
+  import Problem from '@/views/components/Problem.vue';
+  import ExamineeScores from '@/views/components/ExamineeScores.vue';
+  import Areal from '@/views/components/Areal.vue';
+  import HTitle from '@/components/htable/HTitle.vue';
 
   @Component({
     name: 'Home',
+    components: {
+      QuestionType,
+      HTitle,
+      QuestionDiff,
+      UserTotal,
+      PointTotal,
+      RedpackTotal,
+      Problem,
+      ExamineeScores,
+      Areal,
+    },
   })
   export default class extends Vue {
-    private showHeader: boolean = false;
-    private tableData: any[] = [
-      {style: '当前版本', value: 'v1.0.0'},
-      {style: '框架', value: 'vue'},
-      {style: '语法', value: 'typescript'},
-      {style: 'UI组件库', value: 'Element v2.13.0'},
-      {style: '图表库', value: 'd3.js'},
-    ];
-    private activities: any[] = [
-      {
-        content: '支持使用图标',
-        timestamp: '2018-04-12 20:46',
-        size: 'large',
-        type: 'primary',
-        icon: 'el-icon-more',
-      }, {
-        content: '支持自定义颜色',
-        timestamp: '2018-04-03 20:46',
-        color: '#0bbd87',
-      }, {
-        content: '支持自定义尺寸',
-        timestamp: '2018-04-03 20:46',
-        size: 'large',
-      }, {
-        content: '默认样式的节点',
-        timestamp: '2018-04-03 20:46',
-      },
-    ];
-    private iconList: string[] = [
-      'el-icon-platform-eleme',
-      'el-icon-eleme',
-      'el-icon-delete-solid',
-      'el-icon-delete',
-      'el-icon-s-tools',
-      'el-icon-setting',
-      'el-icon-user-solid',
-      'el-icon-user',
-      'el-icon-phone',
-      'el-icon-phone-outline',
-      'el-icon-more',
-      'el-icon-more-outline',
-      'el-icon-star-on',
-      'el-icon-star-off',
-      'el-icon-s-goods',
-      'el-icon-goods',
-    ];
   }
 </script>
 
 <style lang="scss">
-  .home-container {
-    margin: 15px;
-  }
+  .home {
+    padding: 25px;
 
-  .box-card {
-    height: 340px;
+    .title-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
 
-    .box-card_link {
-      float: right;
-      padding: 3px 0;
-      color: #20a0ff;
-      font-size: 14px;
+      .title-right {
+        font-size: 15px;
+        color: #333;
+        font-weight: normal;
+      }
+    }
+
+    .home-item-box {
+      background: #fff;
+      padding: 0 30px;
+      width: 100%;
+      height: 437px;
+      box-shadow: 0 2px 8px 0 rgba(167, 204, 255, 0.8);
+      border-radius: 10px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .home-bottom-title {
+      font-size: 18px;
+      color: #0E0B3E;
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      padding: 20px 18px 0;
     }
   }
 
-  .icon-box {
-    background: #f8f8f8;
-    text-align: center;
-    padding: 10px 0;
-    margin-bottom: 10px;
-
-    i {
-      font-size: 30px;
-    }
-  }
-
-  .icon-box_col {
-    text-align: center;
-    font-size: 14px;
-    color: #666;
+  .mt20 {
+    margin-top: 20px;
   }
 </style>

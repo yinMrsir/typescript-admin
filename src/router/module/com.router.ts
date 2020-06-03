@@ -34,14 +34,6 @@ const comRouter = {
         title: '按钮',
       },
     },
-    {
-      path: 'icon',
-      name: 'Icon',
-      component: 'com/icon',
-      meta: {
-        title: '图标',
-      },
-    },
   ],
 };
 

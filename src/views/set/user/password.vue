@@ -6,17 +6,17 @@
       </div>
       <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px">
         <el-form-item label="当前密码" prop="currPass">
-          <el-input v-model="ruleForm.currPass" type="password" autocomplete="off"></el-input>
+          <el-input v-model="ruleForm.currPass" type="password" autocomplete="off" size="small"></el-input>
         </el-form-item>
         <el-form-item label="新密码" prop="pass">
-          <el-input v-model="ruleForm.pass" type="password" autocomplete="off"></el-input>
-          <el-button type="text" disabled style="padding-left: 10px;">6到16个字符</el-button>
+          <el-input v-model="ruleForm.pass" type="password" autocomplete="off" size="small"></el-input>
+          <el-button type="text" disabled style="padding-left: 10px;" size="small">6到16个字符</el-button>
         </el-form-item>
         <el-form-item label="确认新密码" prop="checkPass">
-          <el-input v-model="ruleForm.checkPass" type="password" autocomplete="off"></el-input>
+          <el-input v-model="ruleForm.checkPass" type="password" autocomplete="off" size="small"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')">确认修改</el-button>
+          <el-button type="primary" @click="submitForm('ruleForm')" size="small">确认修改</el-button>
         </el-form-item>
       </el-form>
     </el-card>

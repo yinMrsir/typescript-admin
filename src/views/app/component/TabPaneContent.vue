@@ -1,9 +1,9 @@
 <template>
   <div>
     <div>
-      <el-button @click="deleteHandler">删除</el-button>
-      <el-button @click="markHandler">标记已读</el-button>
-      <el-button @click="markHandler('all')">全部已读</el-button>
+      <el-button @click="deleteHandler" size="small">删除</el-button>
+      <el-button @click="markHandler" size="small">标记已读</el-button>
+      <el-button @click="markHandler('all')" size="small">全部已读</el-button>
     </div>
     <div class="message-table-box">
       <el-table :data="list" style="width: 100%" border v-loading="loading" @selection-change="handleSelectionChange">

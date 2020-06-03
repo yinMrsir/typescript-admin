@@ -6,15 +6,15 @@
       </div>
       <el-form ref="form" label-width="120px">
         <el-form-item label="网站名称">
-          <el-input></el-input>
+          <el-input size="small"></el-input>
         </el-form-item>
         <el-form-item label="网站域名">
-          <el-input></el-input>
+          <el-input size="small"></el-input>
         </el-form-item>
         <el-form-item label="缓存时间">
           <el-row>
             <el-col :span="2">
-              <el-input></el-input>
+              <el-input size="small"></el-input>
             </el-col>
             <el-col :span="22">
               <div style="padding-left: 15px;">
@@ -26,7 +26,7 @@
         <el-form-item label="最大文件上传">
           <el-row>
             <el-col :span="2">
-              <el-input></el-input>
+              <el-input size="small"></el-input>
             </el-col>
             <el-col :span="22">
               <div style="padding-left: 15px;">
@@ -36,19 +36,19 @@
           </el-row>
         </el-form-item>
         <el-form-item label="上传文件类型">
-          <el-input value="png|gif|jpg|jpeg|zip|rar"></el-input>
+          <el-input value="png|gif|jpg|jpeg|zip|rar" size="small"></el-input>
         </el-form-item>
         <el-form-item label="首页标题">
-          <el-input type="textarea"></el-input>
+          <el-input type="textarea" size="small"></el-input>
         </el-form-item>
         <el-form-item label="META关键词">
-          <el-input type="textarea" placeholder="多个关键词用英文状态 , 号分割"></el-input>
+          <el-input type="textarea" placeholder="多个关键词用英文状态 , 号分割" size="small"></el-input>
         </el-form-item>
         <el-form-item label="META描述">
-          <el-input type="textarea"></el-input>
+          <el-input type="textarea" size="small"></el-input>
         </el-form-item>
         <el-form-item label="版权信息">
-          <el-input type="textarea"></el-input>
+          <el-input type="textarea" size="small"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary">确认保存</el-button>

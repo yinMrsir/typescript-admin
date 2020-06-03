@@ -13,7 +13,9 @@
             </el-breadcrumb-item>
           </el-breadcrumb>
         </div>
-        <router-view></router-view>
+        <div class="main-layout-box">
+          <router-view></router-view>
+        </div>
       </el-main>
     </el-container>
   </el-container>
@@ -68,9 +70,19 @@
     padding: 0;
   }
 
+  .main-layout-box {
+    height: calc(100vh - 127px);
+    overflow-y: auto;
+  }
+
   .breadcrumb {
     background: #fff;
     padding: 15px;
-    border-top: #f6f6f6 solid 1px;
+    border-top: #ececec solid 1px;
+    border-bottom: #ececec solid 1px;
+    height: 59px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
   }
 </style>

@@ -1,8 +1,9 @@
 <template>
   <el-aside width="220px;">
     <el-menu :default-active="activeMenu" class="el-menu-vertical-demo" :collapse="isCollapse"
-             background-color="#20222A"
-             text-color="#ffffff">
+             background-color="#27274A"
+             text-color="#BFDFFF"
+             unique-opened>
       <!-- 一级 -->
       <template v-for="route in routes" v-if="route.meta && !route.meta.hidden">
         <template v-if="route.children && !route.meta.affix">
@@ -107,7 +108,7 @@
 
       .el-menu-item {
         &.is-active {
-          background-color: #009688 !important;
+          background-color: #3F9EFF !important;
           color: #fff !important;
         }
       }

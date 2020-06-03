@@ -7,16 +7,15 @@
       <el-col :span="4" class="input-box">
         <el-input placeholder="搜索..."></el-input>
       </el-col>
-      <el-col :offset="17" :span="1">
+      <el-col :span="19" style="text-align: right;">
         <router-link :to="{name: 'AppMessage'}">
           <el-badge class="header-mark" :value="12">
             <i class="el-icon-message-solid"></i>
           </el-badge>
         </router-link>
-      </el-col>
-      <el-col :span="1">
-        <el-dropdown @command="handleCommand" trigger="click">
+        <el-dropdown @command="handleCommand" trigger="click" style="margin-left: 30px;">
           <span class="el-dropdown-link">
+            <img src="../../assets/oval.png" style="display: inline-block;vertical-align: -7px;" alt=""/>
             {{username}}
           </span>
           <el-dropdown-menu slot="dropdown">
