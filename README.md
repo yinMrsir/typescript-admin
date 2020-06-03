@@ -37,3 +37,5 @@ D3.js [中文文档](https://d3js.org.cn/document/) [官方文档](https://githu
 * 记住密码
 * 支持回车登录
 * 支持动态路由(根据不同用户从接口返回不同的栏目)
+* Echarts图表
+* 机构血缘图
