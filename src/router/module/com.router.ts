@@ -34,6 +34,14 @@ const comRouter = {
         title: '按钮',
       },
     },
+    {
+      path: 'consanguinity',
+      name: 'Consanguinity',
+      component: 'com/consanguinity',
+      meta: {
+        title: '机构血缘图',
+      },
+    },
   ],
 };
 
