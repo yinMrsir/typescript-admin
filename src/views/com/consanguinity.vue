@@ -68,23 +68,25 @@
                   {
                     deptname: '综合管理部',
                     children: [
-                      {deptname: '综合办公室'}
+                      {
+                        deptname: '综合办公室',
+                      },
                     ],
                   },
                   {deptname: '物业管理部'},
                   {deptname: '车队'},
                   {deptname: '服务部'},
                   {deptname: '财务部'},
-                ]
-              }
-            ]
+                ],
+              },
+            ],
           },
           {
             deptname: '财务管理中心',
             children: [
               {deptname: '会计科'},
               {deptname: '出纳科'},
-            ]
+            ],
           },
           {
             deptname: '市场营销中心',
@@ -99,13 +101,13 @@
                 deptname: '办公室',
                 children: [
                   {deptname: '总务'},
-                ]
+                ],
               },
               {deptname: '项目管理中心'},
               {deptname: '质安部'},
               {deptname: '输变电项目部'},
               {deptname: '生产技术部'},
-            ]
+            ],
           },
         ],
       };

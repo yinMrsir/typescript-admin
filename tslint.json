@@ -14,7 +14,16 @@
     "no-consecutive-blank-lines": false,
     "object-literal-sort-keys": false,
     "ordered-imports": false,
-    "quotemark": [true, "single"],
-    "member-ordering": false
+    "quotemark": [false, "jsx-single"],
+    "member-ordering": false,
+    "no-string-literal": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "max-line-length": [
+      false,
+      {
+        "limit": 120,
+        "ignore-pattern": "^import [^,]+ from |^export | implements"
+      }
+    ]
   }
 }
