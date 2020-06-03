@@ -1,6 +1,6 @@
 <template>
-  <div class="relative zent-design-preview-controller">
-    <van-search placeholder="请输入搜索关键词" />
+  <div :class="isEdit ? 'relative zent-design-preview-controller active' : 'relative zent-design-preview-controller'">
+    <div @click="setIsEdit"><van-search placeholder="请输入搜索关键词" /></div>
     <div class="zent-design-editor-item" v-show="isEdit">
       <el-form label-width="90px">
         <el-form-item label="搜索样式：">

@@ -1,10 +1,12 @@
 <template>
-  <div class="relative zent-design-preview-controller">
-    <van-swipe :autoplay="3000">
-      <van-swipe-item v-for="(image, index) in images" :key="index">
-        <img :src="image" style="width: 100%; display: block;"/>
-      </van-swipe-item>
-    </van-swipe>
+  <div :class="isEdit ? 'relative zent-design-preview-controller active' : 'relative zent-design-preview-controller'">
+    <div @click="setIsEdit">
+      <van-swipe :autoplay="3000">
+        <van-swipe-item v-for="(image, index) in images" :key="index">
+          <img :src="image" style="width: 100%; display: block;"/>
+        </van-swipe-item>
+      </van-swipe>
+    </div>
     <div class="zent-design-editor-item" v-show="isEdit">
       <el-form label-width="90px">
         <el-form-item label="选择模板：">

@@ -12,22 +12,29 @@
 </template>
 
 <script lang="ts">
-  import {Vue, Component} from 'vue-property-decorator';
-  import HTitle from '@/components/htable/HTitle.vue';
-  import DesignTitle from '@/views/app/component/design/DesignTitle.vue';
-  import DesignSwipe from '@/views/app/component/design/DesignSwipe.vue';
-  import DesignSearch from '@/views/app/component/design/DesignSearch.vue';
+    import {Vue, Component} from 'vue-property-decorator';
+    import HTitle from '@/components/htable/HTitle.vue';
+    import DesignTitle from '@/views/app/component/design/DesignTitle.vue';
+    import DesignSwipe from '@/views/app/component/design/DesignSwipe.vue';
+    import DesignSearch from '@/views/app/component/design/DesignSearch.vue';
 
-  @Component({
-    components: {
-      HTitle,
-      DesignTitle,
-      DesignSwipe,
-      DesignSearch,
-    },
-  })
-  export default class Design extends Vue {
-  }
+    @Component({
+        components: {
+            HTitle,
+            DesignTitle,
+            DesignSwipe,
+            DesignSearch,
+        },
+    })
+    export default class Design extends Vue {
+        public reset() {
+            this.$children.forEach(((value, index, array) => {
+                if ((value as any).isEdit !== undefined) {
+                    (array[index] as any).isEdit = false;
+                }
+            }));
+        }
+    }
 </script>
 
 <style lang="scss">
@@ -86,11 +93,11 @@
   }
 
   .zent-design-preview-controller {
-    &:hover:before {
+    &:hover:before, &.active:before {
       opacity: .5;
     }
 
-    &:before, &:hover:before {
+    &:before, &:hover:before, &.active:before {
       z-index: 2;
       display: block;
       border: 1px dashed #38f;
@@ -134,7 +141,7 @@
       }
     }
 
-    &:hover .zent-design-preview-controller__action-btn-delete{
+    &:hover .zent-design-preview-controller__action-btn-delete, &.active .zent-design-preview-controller__action-btn-delete {
       display: inline-block;
     }
   }

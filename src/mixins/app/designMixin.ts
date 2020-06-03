@@ -5,6 +5,7 @@ export default class DesignMixin extends Vue {
   public isEdit: boolean = false;
 
   public setIsEdit() {
+    (this.$parent as any).reset();
     this.isEdit = true;
   }
 }
