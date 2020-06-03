@@ -14,7 +14,13 @@ router.beforeEach((to, from, next) => {
     } else {
       if (PermissionModule.isNeedGetRoutes) {   // 是否需要重新获取左侧菜单
         PermissionModule.GenerateRoutes().then(() => {
-          router.addRoutes(PermissionModule.dynamicRoutes);
+          const newRouter = PermissionModule.dynamicRoutes;
+          newRouter.push({
+            path: '*',
+            redirect: '/404',
+            meta: {hidden: true},
+          });
+          router.addRoutes(newRouter);
           next({...to, replace: true});
         });
       } else {

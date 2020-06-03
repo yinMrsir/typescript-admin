@@ -22,7 +22,6 @@
     @Prop({default: 'chart'}) private className!: string;
     @Prop({default: '100%'}) private width!: string;
     @Prop({default: '340px'}) private height!: string;
-    @Prop({default: {}}) private datas!: any;
 
     @Watch('userTotalKey')
     private userTotalKeyWatch(newValue: string) {

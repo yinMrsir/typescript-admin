@@ -125,6 +125,6 @@
 <style lang="scss">
   .main-box-two {
     background: #fff;
-    margin: 25px;
+    margin: 15px;
   }
 </style>

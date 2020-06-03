@@ -47,13 +47,7 @@ export const constantRoutes: RouteConfig[] = [
     component: () => import('@/views/error-page/401.vue'),
     meta: {hidden: true},
   },
-  {
-    path: '*',
-    redirect: '/404',
-    meta: {hidden: true},
-  },
 ];
-
 
 const createRouter = () => new Router({
   mode: 'history',

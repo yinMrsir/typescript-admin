@@ -33,5 +33,13 @@ export default {
       },
       component: 'app/message',
     },
+    {
+      path: 'design',
+      name: 'Design',
+      meta: {
+        title: '可视化界面',
+      },
+      component: 'app/design',
+    },
   ],
 };
