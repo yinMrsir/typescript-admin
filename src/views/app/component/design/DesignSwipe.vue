@@ -1,6 +1,6 @@
 <template>
   <div :class="isEdit ? 'relative zent-design-preview-controller active' : 'relative zent-design-preview-controller'">
-    <div @click="setIsEdit">
+    <div @click.stop.prevent="setIsEdit()">
       <van-swipe :autoplay="3000">
         <van-swipe-item v-for="(image, index) in images" :key="index">
           <img :src="image" style="width: 100%; display: block;"/>
@@ -8,8 +8,23 @@
       </van-swipe>
     </div>
     <div class="zent-design-editor-item" v-show="isEdit">
-      <el-form label-width="90px">
+      <div class="design-edit-title">图片广告</div>
+      <el-form label-width="90px" style="">
         <el-form-item label="选择模板：">
+          <div style="padding-top: 15px;">
+            <div class="rc-design-select-templates">
+              <div class="rc-design-select-templates__image-block">
+                <img src="../../../../assets/app/swiper-one.png">
+                <div class="rc-design-select-templates__title">轮播海报</div>
+              </div>
+            </div>
+            <div class="rc-design-select-templates active">
+              <div class="rc-design-select-templates__image-block">
+                <img src="../../../../assets/app/swiper-two.png">
+                <div class="rc-design-select-templates__title">轮播海报</div>
+              </div>
+            </div>
+          </div>
         </el-form-item>
       </el-form>
     </div>
@@ -37,3 +52,36 @@
     ];
   }
 </script>
+
+<style scoped lang="scss">
+  .rc-design-select-templates {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    border: 1px solid #e5e5e5;
+    margin: 0 10px 15px 0;
+    padding-top: 5px;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+
+    &.active {
+      border-color: #38f;
+    }
+
+    img {
+      width: 90px;
+      height: 64px;
+      max-width: 100%;
+      vertical-align: middle;
+      border: 0;
+      -ms-interpolation-mode: bicubic;
+      position: relative;
+    }
+
+    .rc-design-select-templates .rc-design-select-templates__image-block {
+      width: 100px;
+      height: 64px;
+    }
+  }
+</style>

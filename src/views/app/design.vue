@@ -2,46 +2,118 @@
   <div class="main-box-two">
     <HTitle>编辑微页面</HTitle>
     <div class="design-box">
-      <div class="design-preview">
-        <DesignTitle></DesignTitle>
-        <DesignSwipe></DesignSwipe>
-        <DesignSearch></DesignSearch>
-      </div>
+      <el-row>
+        <el-col :span="3">
+          <div class="select-component">
+            <ul>
+              <li v-for="(item, index) in selectComponentList" :key="index" @click="addComponent(index)">
+                <i :class="item.icon"></i>
+                <p>{{item.name}}</p>
+              </li>
+            </ul>
+          </div>
+        </el-col>
+        <el-col :span="18" :offset="3">
+          <div class="design-preview" :style="'background: '+ background +''">
+            <DesignTitle :background.async="background" @reset="reset" ref="designTitle"></DesignTitle>
+            <draggable>
+              <template v-for="(item, index) in componentList">
+                <DesignSwipe @reset="reset" :ref="'designSwipe' + index" v-if="item.type === 1"></DesignSwipe>
+                <DesignSearch @reset="reset" :ref="'designSearch' + index" v-if="item.type === 2"></DesignSearch>
+              </template>
+            </draggable>
+          </div>
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-    import {Vue, Component} from 'vue-property-decorator';
-    import HTitle from '@/components/htable/HTitle.vue';
-    import DesignTitle from '@/views/app/component/design/DesignTitle.vue';
-    import DesignSwipe from '@/views/app/component/design/DesignSwipe.vue';
-    import DesignSearch from '@/views/app/component/design/DesignSearch.vue';
+  import {Vue, Component} from 'vue-property-decorator';
+  import draggable from 'vuedraggable';
+  import HTitle from '@/components/htable/HTitle.vue';
+  import DesignTitle from '@/views/app/component/design/DesignTitle.vue';
+  import DesignSwipe from '@/views/app/component/design/DesignSwipe.vue';
+  import DesignSearch from '@/views/app/component/design/DesignSearch.vue';
 
-    @Component({
-        components: {
-            HTitle,
-            DesignTitle,
-            DesignSwipe,
-            DesignSearch,
-        },
-    })
-    export default class Design extends Vue {
-        public reset() {
-            this.$children.forEach(((value, index, array) => {
-                if ((value as any).isEdit !== undefined) {
-                    (array[index] as any).isEdit = false;
-                }
-            }));
-        }
+  @Component({
+    components: {
+      draggable,
+      HTitle,
+      DesignTitle,
+      DesignSwipe,
+      DesignSearch,
+    },
+  })
+  export default class Design extends Vue {
+    private background: string = '#F9F9F9';
+    private selectComponentList: Array<{ icon: string, name: string, type: number }> = [
+      {icon: 'el-icon-picture', name: '图片广告', type: 1},
+      {icon: 'el-icon-search', name: '搜索框', type: 2},
+    ];
+    private componentList: any[] = [];
+
+    private addComponent(index: number) {
+      this.componentList.push(this.selectComponentList[index]);
     }
+
+    public reset() {
+      for (const key of Object.keys(this.$refs)) {
+        if (this.$refs[key] instanceof Array) {
+          (this.$refs[key] as any)[0].isEdit = false;
+        }
+      }
+      (this.$refs['designTitle'] as any).isEdit = false;
+    }
+  }
 </script>
 
 <style lang="scss">
   .design-box {
-    padding: 10px;
+
+    .select-component {
+      height: calc(100vh - 222px);
+      border-right: #eaeaea solid 1px;
+
+      ul {
+        li {
+          width: 50%;
+          border-right: #eaeaea solid 1px;
+          border-bottom: #eaeaea solid 1px;
+          text-align: center;
+          box-sizing: border-box;
+          padding: 15px;
+          font-size: 12px;
+          float: left;
+          cursor: pointer;
+
+          &:hover {
+            background: #2a77ff;
+
+            i {
+              color: #fff;
+            }
+
+            p {
+              color: #fff;
+            }
+          }
+
+          i {
+            font-size: 30px;
+            margin-bottom: 10px;
+          }
+
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
 
     .design-preview {
+      margin-top: 20px;
       border: 1px solid #e5e5e5;
       width: 320px;
       min-height: 450px;
@@ -144,5 +216,18 @@
     &:hover .zent-design-preview-controller__action-btn-delete, &.active .zent-design-preview-controller__action-btn-delete {
       display: inline-block;
     }
+  }
+
+  .design-edit-title {
+    border-bottom: #ccc solid 1px;
+    padding: 0 10px 10px 0;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .el-form-item {
+    margin-bottom: 5px;
   }
 </style>

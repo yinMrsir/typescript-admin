@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "skipLibCheck": true, // 忽略所有的声明文件（ *.d.ts）的类型检查
     "target": "esnext",
     "module": "esnext",
     "strict": true,

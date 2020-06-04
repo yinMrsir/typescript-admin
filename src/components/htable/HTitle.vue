@@ -55,7 +55,7 @@
       content: '';
       height: 1px;
       background: #EAEAEA;
-      left: 20px;
+      left: 0;
       right: 0;
       bottom: 0;
       position: absolute;
@@ -87,7 +87,7 @@
       content: '';
       height: 1px;
       background: #EAEAEA;
-      left: 20px;
+      left: 0;
       right: 0;
       bottom: 0;
       position: absolute;
@@ -107,7 +107,7 @@
       content: '';
       height: 1px;
       background: #EAEAEA;
-      left: 20px;
+      left: 0;
       right: 0;
       bottom: 0;
       position: absolute;
@@ -128,7 +128,7 @@
       content: '';
       height: 1px;
       background: #EAEAEA;
-      left: 20px;
+      left: 0;
       right: 0;
       bottom: 0;
       position: absolute;
