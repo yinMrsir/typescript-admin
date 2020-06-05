@@ -26,12 +26,8 @@ or
 npm run build
 ```
 
-### Customize configuration
-
-D3.js [中文文档](https://d3js.org.cn/document/) [官方文档](https://github.com/d3/d3/blob/master/API.md)
-
 ### 功能说明
-
+```
 * 输入信息校验
 * 图片验证码校验
 * 记住密码
@@ -39,3 +35,9 @@ D3.js [中文文档](https://d3js.org.cn/document/) [官方文档](https://githu
 * 支持动态路由(根据不同用户从接口返回不同的栏目)
 * Echarts图表
 * 机构血缘图
+
+==== 待完成的功能模块 ====
+
+* 可视化界面(自定义模块)
+```
+
