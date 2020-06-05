@@ -5,10 +5,10 @@
     </div>
     <div class="zent-design-editor-item" v-show="isEdit">
       <el-form label-width="90px">
-        <el-form-item label="页面名称：">
+        <el-form-item label="页面名称">
           <el-input size="small" v-model="title"></el-input>
         </el-form-item>
-        <el-form-item label="背景颜色：">
+        <el-form-item label="背景颜色">
           <el-radio-group v-model="backgroundStatus">
             <el-radio label="1">默认背景色</el-radio>
             <el-radio label="2">自定义背景色</el-radio>
@@ -43,13 +43,13 @@
       if (this.defaultBgColor === '') {
         this.defaultBgColor = oldValue;
       }
-      (this.$parent as any).background = newValue;
+      this.$emit('updateBgColor', newValue);
     }
 
     // 重置背景颜色到之前保存的
     private resetBgColor() {
+      this.$emit('updateBgColor', this.defaultBgColor);
       this.currBgColor = this.defaultBgColor;
-      (this.$parent as any).background = this.defaultBgColor;
     }
   }
 </script>

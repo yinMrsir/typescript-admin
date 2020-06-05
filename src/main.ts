@@ -18,7 +18,7 @@ import * as filters from '@/filters';
 // directives
 import * as directives from '@/directives';
 
-Vue.use(ElementUI);
+Vue.use(ElementUI, {size: 'small'});
 Vue.use(ToastPlugins);
 
 Object.keys(filters).forEach((key) => {
