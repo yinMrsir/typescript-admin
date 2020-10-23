@@ -109,7 +109,7 @@
 
     private drawBgPillar() {
       this.barWidth = (this.width / this.data.length) * 0.9; // 用于绘制每条柱
-      const stepArray = ticks(0, max(this.data, (d: { frequency: any; }) => d.frequency), 10); // 用于生成背景柱
+      const stepArray: number[] = ticks(0, max(this.data, (d: { frequency: any; }) => d.frequency), 10); // 用于生成背景柱
       const colors = ['#ccc', '#ddd']; // 用于生成背景柱
 
       this.g.append('g') // 设置背景柱
@@ -126,9 +126,9 @@
         .attr('x', 1)
         .attr('width', this.width)
         .attr('height', (d: any, i: number) => {
-          return this.y(stepArray[i]) - this.y(stepArray[i + 1]);
+          return (this as any).y(stepArray[i]) - (this as any).y(stepArray[i + 1]);
         })
-        .attr('y', (d: any, i: number) => {
+        .attr('y', (d: any, i: number): any => {
           return this.y((i + 1) * stepArray[1]);
         });
     }
@@ -153,11 +153,11 @@
         .delay((d, i) => {
           return i * 200;
         })
-        .attr('y', (d: any) => {
+        .attr('y', (d: any): any => {
           return this.y(d ? d.frequency : 0);
         })
-        .attr('height', (d: any) => {
-          return this.height - this.y(d ? d.frequency : 0);
+        .attr('height', (d: any): any => {
+          return this.height - (this as any).y(d ? d.frequency : 0);
         });
 
       this.g.append('g') // 输出柱图上的数值
@@ -172,7 +172,7 @@
         .attr('x', (d: { letter: string; }) => {
           return Number(this.x(d.letter));
         })
-        .attr('y', (d: { frequency: number | { valueOf(): number; }; }) => {
+        .attr('y', (d: { frequency: number | { valueOf(): number; }; }): any => {
           return this.y(d.frequency);
         })
         .attr('dx', this.barWidth / 2)
