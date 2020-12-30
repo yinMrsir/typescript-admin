@@ -12,10 +12,9 @@ export const getRequest = (url: string, name: string) => {
 export const extend = (data: { [x: string]: any; length: any; }) => {
   if (typeof data === 'object' && data) {
     const val: any = typeof data.length === 'number' ? [] : {};
-    // tslint:disable-next-line:forin
-    for (const i in data) {
-      val[i] = extend(data[i]);
-    }
+    Object.keys(data).forEach((key) => {
+      val[key] = extend(data[key]);
+    });
     return val;
   } else {
     return data;
