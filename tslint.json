@@ -18,6 +18,7 @@
     "member-ordering": false,
     "no-string-literal": false,
     "suppressImplicitAnyIndexErrors": true,
+    "no-console": false,
     "max-line-length": [
       false,
       {

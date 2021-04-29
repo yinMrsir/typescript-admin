@@ -1,0 +1,7 @@
+{
+  "code": 200,
+  "data": {
+    "token": "token-test",
+    "username": "admin"
+  }
+}

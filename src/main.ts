@@ -9,8 +9,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import './permission';
-// 模拟接口
-import './mock';
+
 // 自定义插件
 import ToastPlugins from './plugins/toastPlugins';
 // filters

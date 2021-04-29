@@ -1,5 +1,6 @@
 const merge = require('webpack-merge');
 const tsImportPluginFactory = require('ts-import-plugin');
+const WebpackMockServicePlugin = require('webpack-mock-service-plugin')
 
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
@@ -12,13 +13,13 @@ module.exports = {
     port: 8081,
     // 设置代理
     proxy: {
-      '/api': {
+      '/api/': {
         // 目标 API 地址
-        target: 'http://www.echartsjs.com',
+        target: 'http://localhost:3000',
         // 将主机标头的原点更改为目标URL
         changeOrigin: true,
         pathRewrite: {
-          '^/api': ''
+          '^/api/': ''
         }
       }
     }
@@ -45,6 +46,15 @@ module.exports = {
         });
         return options;
       });
+  },
+  configureWebpack: () => {
+    if (process.env.NODE_ENV === 'development') {
+      return {
+        plugins: [
+          new WebpackMockServicePlugin()
+        ]
+      }
+    }
   },
   parallel: false,
 };

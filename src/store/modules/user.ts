@@ -48,8 +48,8 @@ class User extends VuexModule implements IUserState {
       userApi.login({
         requestValue: aesEncode(JSON.stringify(userInfo)),
       }).then((data: any) => {
-        this.SET_TOKEN(data.token);
-        setToken(data.token);
+        this.SET_TOKEN(data.data.token);
+        setToken(data.data.token);
 
         this.SET_USERINFO(JSON.stringify(data.data));
         setUserInfo(JSON.stringify(data.data));

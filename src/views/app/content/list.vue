@@ -21,7 +21,7 @@
           <el-col :span="5">
             <el-form-item label="文章标签">
               <el-select v-model="region" placeholder="请选择标签" style="width: 100%;"  size="small">
-                <el-option :label="item.label" :value="item.value" v-for="item in selectList" :key="item"></el-option>
+                <el-option :label="item.label" :value="item.value" v-for="item in selectList" :key="item.value"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
@@ -35,7 +35,7 @@
       <el-button type="primary" size="small">删除</el-button>
       <el-button type="primary" @click="addItem" size="small">添加</el-button>
     </div>
-    <el-table :data="tableData" style="width: 100%" border v-loading="loading" stripe>
+    <el-table :data="tableData" style="width: 100%" border v-loading="loading" stripe row-key="id">
       <el-table-column type="selection" width="55"></el-table-column>
       <el-table-column prop="id" label="文章ID" width="180"></el-table-column>
       <el-table-column label="文章标签" width="100">
@@ -80,7 +80,7 @@
         </el-form-item>
         <el-form-item label="标签" label-width="80px">
           <el-select placeholder="请选择标签" v-model="dialogForm.tag">
-            <el-option :label="item.label" :value="item.value" v-for="item in selectList" :key="item"></el-option>
+            <el-option :label="item.label" :value="item.value" v-for="item in selectList" :key="item.value"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="发布状态" label-width="80px">
