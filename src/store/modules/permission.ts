@@ -35,7 +35,7 @@ class Permission extends VuexModule implements IPermissionState {
   @Action
   public GenerateRoutes() {
     return new Promise(async (resolve) => {
-      const { data }: any = await permissionApi.getRouters({token: UserModule.token});
+      const { data }: any = await permissionApi.getRouters();
       const asyncRoutes = filterAsyncRouter(data.asyncRoutes);
       this.SET_ROUTES(asyncRoutes);
       this.SET_ISNEEDGETROUTES(false);

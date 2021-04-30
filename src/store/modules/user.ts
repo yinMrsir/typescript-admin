@@ -45,9 +45,7 @@ class User extends VuexModule implements IUserState {
   @Action
   public async Login(userInfo: { username: string, password: string }) {
     return new Promise((resolve) => {
-      userApi.login({
-        requestValue: aesEncode(JSON.stringify(userInfo)),
-      }).then((data: any) => {
+      userApi.login(userInfo).then((data: any) => {
         this.SET_TOKEN(data.data.token);
         setToken(data.data.token);
 
