@@ -13471,10 +13471,10 @@ webpack-merge@^4.2.2:
   dependencies:
     lodash "^4.17.15"
 
-webpack-mock-service-plugin@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/webpack-mock-service-plugin/-/webpack-mock-service-plugin-1.0.7.tgz#809dd3faa93ccaeb71e3447eddf39a90d5fe8e44"
-  integrity sha512-4ngRYkFGC/2H8gv9qcVixpWg1caP7OSwL/ZEvS6ZTSu1D6E2cwRdUyNS53Ll0+Tv4saOSNukhqagtDp9WYRowg==
+webpack-mock-service-plugin@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/webpack-mock-service-plugin/-/webpack-mock-service-plugin-1.0.8.tgz#6cecb6ff947a451655efbb413a5b7c75d3968e30"
+  integrity sha512-CEKh6qv1nldXS3tJzeA9JuofusE2q719pMzp/8lYfBCdgBMT8UbaEeCYWC32S/X0ttuYU+SUrFuSHVgKDttnJQ==
   dependencies:
     express "^4.17.1"
     mockjs "^1.1.0"

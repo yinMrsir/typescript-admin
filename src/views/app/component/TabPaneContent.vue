@@ -38,7 +38,7 @@
     private multipleSelection: any[] = [];
 
     private changePageHandler(n: number) {
-      this.getMessage();
+      this.getMessage(n);
     }
 
     private handleSelectionChange(val: any) {
@@ -77,9 +77,9 @@
       }
     }
 
-    public getMessage() {
+    public getMessage(page = 1) {
       this.loading = true;
-      appApi.message({type: this.type}).then((data: any) => {
+      appApi.message({type: this.type, page}).then((data: any) => {
         this.list = data.data.list;
         this.loading = false;
       });

@@ -10,7 +10,7 @@ module.exports = req => {
   if (username !== password) {
     return {
       code: 201,
-      message: '用户密码不正确'
+      message: '用户密码不正确, 用户名和密码要一致噢'
     }
   }
   return {
