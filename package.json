@@ -52,7 +52,7 @@
     "sass-loader": "^8.0.0",
     "typescript": "~3.5.3",
     "vue-template-compiler": "^2.6.10",
-    "webpack-mock-service-plugin": "^1.0.8"
+    "webpack-mock-service-plugin": "^1.0.9"
   },
   "postcss": {
     "plugins": {
